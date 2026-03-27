@@ -69,8 +69,7 @@ Fetch from your site for auto-updating:
 
 ```cpp
 // pseudo
-auto json = http_get("https://offsets.win/api/offsets.json");
-offsets.player_eyes = parse_hex(json["offsets"]["BasePlayer"]["PlayerEyes"]);
+auto offset = http_get("https://offsets.win/api/v1/offset?class=BasePlayer&property=PlayerEyes");
 ```
 
 ### Signature Scanning
