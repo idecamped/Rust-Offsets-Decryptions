@@ -1,0 +1,803 @@
+{
+  "offsets": {
+    "BasePlayer": {
+      "playerNames": "0x358",
+      "PlayerEyes": "0x640",
+      "PlayerInventory": "0x390",
+      "PlayerInput": "0x350",
+      "PlayerMovement": "0x2b8",
+      "PlayerModel": "0x508",
+      "playerFlags": "0x630",
+      "ModelState": "0x2d0",
+      "currentTeam": "0x4b8",
+      "clActiveItem": "0x4e8",
+      "clothingBlocksAiming": "0x714",
+      "clothingMoveSpeedReduction": "0x718",
+      "UserID": "0x4d8",
+      "metabolism": "0x2c8",
+      "modifiers": "0x308",
+      "clothingAccuracyBonus": "0x720",
+      "clothingWaterSpeedBonus": "0x71c"
+    },
+    "BaseEntity": {
+      "model": "0xf0",
+      "Bounds": "0xc8",
+      "flags": "0xf8",
+      "skinID": "0x100",
+      "triggers": "0x168",
+      "HasBrain": "0x110",
+      "gameObject": "0xe0"
+    },
+    "BaseCombatEntity": {
+      "LifeState": "0x270",
+      "_health": "0x278",
+      "_maxHealth": "0x27c",
+      "startHealth": "0x208",
+      "skeletonProperties": "0x1f8",
+      "baseProtection": "0x200",
+      "ShowHealthInfo": "0x268"
+    },
+    "PlayerModel": {
+      "Position": "0x1f8",
+      "Velocity": "0x204",
+      "newVelocity": "0x210",
+      "Rotation": "0x228",
+      "GestureConfig": "0x390",
+      "IsNpc__BackingField": "0x4c4",
+      "__Multimesh": "0x4a8"
+    },
+    "PlayerInventory": {
+      "ItemContainer": "0x30",
+      "ContainerBelt": "0x58",
+      "ContainerWear": "0x60"
+    },
+    "Item": {
+      "ItemList": "0x30",
+      "ItemDefinition": "0x78",
+      "Amount": "0x38",
+      "CurrentHealth": "0x10",
+      "MaxHealth": "0xc8",
+      "ItemUID": "0xa8",
+      "HeldEntity": "0x80"
+    },
+    "ItemContainer": {
+      "ItemList": "0x30",
+      "Capacity": "0x50"
+    },
+    "List": {
+      "Buffer": "0x10",
+      "Count": "0x18",
+      "ArrayBase": "0x20"
+    },
+    "HeldEntity": {
+      "ViewModel": "0x278",
+      "viewModel": "0x200",
+      "hostileScore": "0x244"
+    },
+    "BaseViewModel": {
+      "IronSights": "0xb0",
+      "AnimationEvents": "0xe8",
+      "ViewmodelBob": "0xf0",
+      "ViewmodelSway": "0x90",
+      "useViewModelCamera": "0x40",
+      "lazyaimRegular": "0x28"
+    },
+    "ItemDefinition": {
+      "shortname": "0x28",
+      "itemid": "0x20",
+      "displayName": "0x40",
+      "ItemMod": "0x148",
+      "category": "0x58",
+      "rarity": "0x90",
+      "stackable": "0x78",
+      "condition": "0xb8"
+    },
+    "Translate_Phrase": {
+      "English": "0x10"
+    },
+    "ItemModWearable": {
+      "blocksAiming": "0x5c",
+      "occlusionType": "0x58"
+    },
+    "AttackEntity": {
+      "repeatDelay": "0x294",
+      "deployDelay": "0x290",
+      "effectiveRange": "0x29c",
+      "npcDamageScale": "0x2a0",
+      "aiAimSwayOffset": "0x2b0",
+      "aiAimCone": "0x2b4",
+      "aiOnlyInRange": "0x2b8"
+    },
+    "BaseProjectile": {
+      "reloadTime": "0x378",
+      "recoil": "0x3a8",
+      "primaryMagazine": "0x380",
+      "aimconePenalty": "0x3f8",
+      "aimCone": "0x3b8",
+      "aimconePenaltyPerShot": "0x3c0",
+      "aimSway": "0x3a0",
+      "aimSwaySpeed": "0x3a4",
+      "stancePenaltyScale": "0x3d0",
+      "aimConePenaltyMax": "0x3c4",
+      "automatic": "0x338",
+      "hipAimCone": "0x3bc",
+      "isBurstWeapon": "0x3df",
+      "canChangeFireModes": "0x3e0",
+      "internalBurstFireRateScale": "0x3e8",
+      "IsReloading": "0x45c",
+      "noAimingWhileCycling": "0x3d5",
+      "projectileVelocityScale": "0x334",
+      "turretDamageScale": "0x33c",
+      "damageScale": "0x32c",
+      "distanceScale": "0x330",
+      "aimconeCurve": "0x3b0"
+    },
+    "Projectile": {
+      "initialVelocity": "0x28",
+      "thickness": "0x3c",
+      "velocity": "0x15c",
+      "position": "0x168",
+      "sentPosition": "0x180",
+      "previousPosition": "0x18c",
+      "previousVelocity": "0x198",
+      "projectileID": "0x20",
+      "owner": "0x128",
+      "hitTest": "0x1d8",
+      "drag": "0x34",
+      "gravityModifier": "0x38",
+      "traveledDistance": "0x174",
+      "mod": "0x1e8"
+    },
+    "HitTest": {
+      "HitTransform": "0xb0",
+      "HitEntity": "0x28",
+      "type": "0x78",
+      "Radius": "0x20",
+      "didHit": "0x6c",
+      "HitNormal": "0x80",
+      "HitPoint": "0xd4",
+      "damageProperties": "0x10",
+      "HitDistance": "0x68",
+      "MultiHit": "0x7c",
+      "attackRay": "0x30",
+      "collider": "0x70",
+      "gameObject": "0x18",
+      "Bone": "0xb0"
+    },
+    "RecoilProperties": {
+      "recoilYawMin": "0x18",
+      "recoilYawMax": "0x1c",
+      "recoilPitchMin": "0x20",
+      "recoilPitchMax": "0x24",
+      "aimconeCurveScale": "0x60",
+      "newRecoilOverride": "0x80",
+      "timeToTakeMin": "0x28",
+      "timeToTakeMax": "0x2c",
+      "ADSScale": "0x30",
+      "movementPenalty": "0x34",
+      "clampPitch": "0x38",
+      "pitchCurve": "0x40",
+      "yawCurve": "0x48",
+      "shotsUntilMax": "0x54",
+      "maxRecoilRadius": "0x58"
+    },
+    "HackableLockedCrate": {
+      "TimerText": "0x3d8"
+    },
+    "BuildingPrivlidge": {
+      "UpkeepTime": "0x3cc",
+      "authorizedPlayers": "0x3c0"
+    },
+    "PatrolHelicopter": {
+      "weakspots": "0x418",
+      "spotlightTarget": "0x3c8",
+      "maxCratesToSpawn": "0x358",
+      "bulletDamage": "0x360",
+      "bulletSpeed": "0x35c",
+      "myAI": "0x430"
+    },
+    "CompoundBowWeapon": {
+      "stringHoldDurationMax": "0x478",
+      "movementPenaltyRampUpTime": "0x488"
+    },
+    "FlintStrikeWeapon": {
+      "successFraction": "0x460",
+      "_didSparkThisFrame": "0x470"
+    },
+    "BowWeapon": {
+      "attackReady": "0x470",
+      "nopullback": "0x464"
+    },
+    "SkinnedMultiMeshRenderers": {
+      "Renderers__BackingField": "0x40"
+    },
+    "Model": {
+      "bone_array": "0x50"
+    },
+    "ActiveItem": {
+      "clActiveItem": "0x4e8"
+    },
+    "Magazine": {
+      "definition": "0x20",
+      "capacity": "0x18",
+      "contents": "0x1c",
+      "ammoType": "0x20"
+    },
+    "PlayerEyes": {
+      "bodyRotation": "0x50",
+      "viewOffset": "0x28",
+      "rotationLook": "0x6c"
+    },
+    "PlayerInput": {
+      "state": "0x28"
+    },
+    "InputState": {
+      "current": "0x18",
+      "previous": "0x20"
+    },
+    "InputMessage": {
+      "buttons": "0x14",
+      "aimAngles": "0x18",
+      "mouseDelta": "0x24"
+    },
+    "PlayerWalkMovement": {
+      "groundAngle": "0x70",
+      "groundAngleNew": "0x78",
+      "capsule": "0xf0",
+      "groundVelocity": "0x128",
+      "ladder": "0xd8"
+    },
+    "BaseMelee": {
+      "effectiveRange": "0x29c",
+      "attackRadius": "0x344",
+      "maxDistance": "0x340",
+      "gathering": "0x378",
+      "damageProperties": "0x328",
+      "canThrowAsProjectile": "0x381",
+      "aiStrikeDelay": "0x35c"
+    },
+    "FlameThrower": {
+      "fuelPerSec": "0x398",
+      "flameRange": "0x340",
+      "ammo": "0x32c"
+    },
+    "BaseMountable": {
+      "mountedPlayer": "0x2a8",
+      "canWieldItems": "0x2e4",
+      "isMobile": "0x391",
+      "canDrinkWhileMounted": "0x380"
+    },
+    "AutoTurret": {
+      "sightRange": "0x450",
+      "aimCone": "0x4b0",
+      "targetTrigger": "0x4f0",
+      "target": "0x418",
+      "bulletSpeed": "0x3c8"
+    },
+    "Recycler": {
+      "recycleEfficiency": "0x398"
+    },
+    "Object": {
+      "m_CachedPtr": "0x10"
+    },
+    "BaseNetworkable_Fields": {
+      "prefabID": "0x30"
+    },
+    "IronSights": {
+      "aimSway": "0x28",
+      "aimSwaySpeed": "0x2c"
+    },
+    "SkeletonProperties": {
+      "bones": "0x20"
+    },
+    "ProtectionProperties": {
+      "amounts": "0x28"
+    },
+    "WorldItem": {
+      "allowPickup": "0x1d8"
+    },
+    "CodeLock": {
+      "hasCode": "0x248",
+      "hasGuestCode": "0x258"
+    },
+    "StorageContainer": {
+      "isLootable": "0x305",
+      "inventorySlots": "0x2f8",
+      "panelName": "0x308",
+      "onlyOneUser": "0x374"
+    },
+    "PlayerLoot": {
+      "entitySource": "0x28",
+      "containers": "0x38"
+    },
+    "DroppedItemContainer": {
+      "playerName": "0x2a8",
+      "playerSteamID": "0x2c0"
+    },
+    "ItemModProjectile": {
+      "projectileVelocity": "0x40",
+      "projectileVelocitySpread": "0x44",
+      "numProjectiles": "0x38",
+      "spread": "0x3c",
+      "projectileObject": "0x20"
+    },
+    "ProjectileWeaponMod": {
+      "sightAimConeScale": "0x1d8",
+      "sightAimConeOffset": "0x268",
+      "hipAimConeScale": "0x280",
+      "hipAimConeOffset": "0x288"
+    },
+    "Construction": {
+      "canBypassBuildingPermission": "0xc0"
+    },
+    "BuildingBlock": {
+      "grade": "0x330",
+      "blockDefinition": "0x348"
+    },
+    "GrowableEntity": {
+      "Properties": "0x2f8"
+    },
+    "PlantProperties": {
+      "WaterIntake": "0x54",
+      "MaxSeasons": "0x50"
+    },
+    "MedicalTool": {
+      "healDurationSelf": "0x328",
+      "maxDistanceOther": "0x334"
+    },
+    "Chainsaw": {
+      "fuelPerSec": "0x3d4",
+      "maxAmmo": "0x3d8"
+    },
+    "SamSite": {
+      "currentAimDir": "0x3b4",
+      "vehicleScanRadius": "0x3cc",
+      "staticRespawn": "0x3e8",
+      "projectileTest": "0x3d8"
+    },
+    "TimedExplosive": {
+      "timerAmountMin": "0x1d8",
+      "timerAmountMax": "0x1dc",
+      "explosionRadius": "0x1e4",
+      "stickEffect": "0x210",
+      "damageTypes": "0x250"
+    },
+    "GrenadeWeapon": {
+      "maxThrowVelocity": "0x330"
+    },
+    "ThrownWeapon": {
+      "maxThrowVelocity": "0x330"
+    },
+    "ServerProjectile": {
+      "speed": "0x3c",
+      "gravityModifier": "0x38",
+      "drag": "0x34"
+    },
+    "PlayerCorpse": {
+      "buoyancy": "0x310",
+      "underwearSkin": "0x318"
+    },
+    "MapView": {
+      "mapImage": "0x20",
+      "scrollRect": "0x40"
+    },
+    "Planner": {
+      "CurrentConstruction": "0x2a8"
+    },
+    "GestureConfig": {
+      "gestureId": "0x18",
+      "gestureCommand": "0x20",
+      "duration": "0x4c"
+    },
+    "BaseFishingRod": {
+      "FishCatchDistance": "0x298",
+      "MaxCastDistance": "0x2d4"
+    },
+    "ColliderInfo": {
+      "flags": "0x20"
+    },
+    "PlayerMetabolism": {
+      "temperature": "0x48",
+      "comfort": "0x88",
+      "radiation_level": "0x58",
+      "radiation_poison": "0x60",
+      "bleeding": "0x80",
+      "oxygen": "0x78",
+      "wetness": "0x68",
+      "dirtyness": "0x70",
+      "pending_health": "0x90"
+    },
+    "MetabolismAttribute": {
+      "value": "0x20",
+      "min": "0x18",
+      "max": "0x1c",
+      "startMin": "0x10",
+      "startMax": "0x14"
+    },
+    "BaseMovement": {
+      "Owner": "0x28"
+    },
+    "LazyAimProperties": {
+      "snapStrength": "0x18",
+      "deadzoneAngle": "0x1c"
+    },
+    "ViewmodelBob": {
+      "bobSpeedWalk": "0x20",
+      "bobSpeedRun": "0x24",
+      "bobAmountWalk": "0x28",
+      "bobAmountRun": "0x2c"
+    },
+    "ViewmodelSway": {
+      "positionalSwaySpeed": "0x20",
+      "positionalSwayAmount": "0x24",
+      "rotationSwaySpeed": "0x28",
+      "rotationSwayAmount": "0x2c"
+    },
+    "MotorRowboat": {
+      "fuelPerSec": "0x510"
+    },
+    "HotAirBalloon": {
+      "inflationLevel": "0x334",
+      "windForce": "0x38c",
+      "fuelPerSec": "0x340",
+      "liftAmount": "0x2d8"
+    },
+    "RidableHorse": {
+      "staminaCoreLossRatio": "0x600"
+    },
+    "Snowmobile": {
+      "engineKW": "0x510"
+    },
+    "TrainEngine": {
+      "maxSpeed": "0x5c4"
+    },
+    "Kayak": {
+      "maxPaddleFrequency": "0x478"
+    },
+    "BradleyAPC": {
+      "health": "0x2f0"
+    },
+    "SimpleShark": {
+      "aggroRange": "0x2cc"
+    },
+    "Landmine": {
+      "minExplosionRadius": "0x2f8"
+    },
+    "GunTrap": {
+      "ammoType": "0x3b8"
+    },
+    "FlameTurret": {
+      "arc": "0x388",
+      "fuelPerSec": "0x398"
+    },
+    "TeslaCoil": {
+      "maxDischargeSelfDamageSeconds": "0x330",
+      "maxDamageOutput": "0x334",
+      "dischargeTickRate": "0x32c"
+    },
+    "Barricade": {
+      "reflectDamage": "0x2e0"
+    },
+    "Door": {
+      "canHandOpen": "0x33d"
+    },
+    "StabilityEntity": {
+      "grounded": "0x2e0"
+    },
+    "BaseOven": {
+      "temperature": "0x388",
+      "allowByproductCreation": "0x3d8"
+    },
+    "Workbench": {
+      "Workbenchlevel": "0x38c"
+    },
+    "RepairBench": {
+      "maxConditionLostOnRepair": "0x380"
+    },
+    "ElectricalBranch": {
+      "branchAmount": "0x320"
+    },
+    "VendingMachine": {
+      "shopName": "0x3b8"
+    },
+    "LootContainer": {
+      "maxDefinitionsToSpawn": "0x390",
+      "initialLootSpawn": "0x39c",
+      "scrapAmount": "0x3ac"
+    },
+    "SupplyDrop": {
+      "parachute": "0x3d0"
+    },
+    "DroppedItem": {
+      "itemModel": "0x1e8"
+    },
+    "TreeEntity": {
+      "woodAmount": "0x224",
+      "fallDuration": "0x1f4"
+    },
+    "ResourceDispenser": {
+      "containedItems": "0x38",
+      "gatherType": "0x30",
+      "fractionRemaining": "0x54",
+      "maxDestroyFractionForFinishBonus": "0x40"
+    },
+    "MiningQuarry": {
+      "processRate": "0x2d8",
+      "fuelStoragePrefab": "0x2e8"
+    },
+    "SleepingBag": {
+      "niceName": "0x328",
+      "canBePublic": "0x341"
+    },
+    "DamageProperties": {
+      "fallback": "0x20"
+    },
+    "FireBall": {
+      "damagePerSecond": "0x204",
+      "radius": "0x208",
+      "tickRate": "0x200"
+    },
+    "BaseHelicopter": {
+      "rotorPivot": "0x408"
+    },
+    "CargoShip": {
+      "targetNodeIndex": "0x1d8"
+    },
+    "ExcavatorArm": {
+      "resourceProductionTickRate": "0x250",
+      "timeForFullResources": "0x254"
+    },
+    "TOD_Sky_Fields": {
+      "Day": "0x58",
+      "Night": "0x60",
+      "Cycle": "0x40",
+      "Atmosphere": "0x50",
+      "Sun": "0x68",
+      "Moon": "0x70",
+      "Stars": "0x78"
+    },
+    "TOD_CycleParameters": {
+      "Hour": "0x10",
+      "Day": "0x14",
+      "Month": "0x18",
+      "Year": "0x1c"
+    },
+    "WaterBody": {
+      "Type": "0x20"
+    },
+    "Buoyancy": {
+      "buoyancyScale": "0x38",
+      "doEffects": "0x3d"
+    },
+    "CCTV_RC": {
+      "pitch": "0x358",
+      "yaw": "0x350"
+    },
+    "Telephone": {
+      "Controller": "0x3d0"
+    },
+    "MapMarker": {
+      "appType": "0x1d8"
+    },
+    "BaseBoat": {
+      "buoyancy": "0x410"
+    },
+    "ResearchTable": {
+      "researchDuration": "0x388",
+      "researchCostFraction": "0x384"
+    },
+    "TriggerBase": {
+      "interestLayers": "0x20",
+      "entityContents": "0x38"
+    },
+    "TriggerRadiation": {
+      "RadiationAmountOverride": "0x54"
+    },
+    "WildlifeTrap": {
+      "trapSuccessRate": "0x394",
+      "tickRate": "0x380"
+    },
+    "BaseNetworkable": {
+      "ghandle": {
+        "value": "0xe4c58e8",
+        "sig": "0D EC 42 82 0D E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0"
+      },
+      "StaticFields": "0xb8",
+      "ClientEntities": "0x10",
+      "EntityList": "0x10",
+      "Buffer": "0x18",
+      "ArrayBase": "0x20"
+    },
+    "ListComponent_Projectile": {
+      "ListComponent_Projectile_C": {
+        "value": "0xe442f48",
+        "sig": "0D 9F 19 82 0A E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0"
+      },
+      "static_fields": "0xb8",
+      "instance": "0x28",
+      "instance_two": "0x18"
+    },
+    "TodSky": {
+      "TodSky_C": {
+        "value": "0xe48e260",
+        "sig": "8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 66 82 ED 0D 01 48 8B 0D ?? ?? ?? ??"
+      },
+      "Instance": "0x10"
+    },
+    "Convar_Admin": {
+      "TypeInfo": {
+        "value": "0xe484d68",
+        "sig": "58 03 80 3D 00 64 B8 0D 00 48 8B 7C ?? 40 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83"
+      }
+    },
+    "Convar_Graphics": {
+      "TypeInfo": {
+        "value": "0xe4c5888",
+        "sig": "48 83 EC 20 80 3D 63 DA 4A 0E 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 46 DA 4A 0E 01 48 8B 05 ?? ?? ?? ??"
+      }
+    },
+    "Convar_Server": {
+      "TypeInfo": {
+        "value": "0xe4c60d0",
+        "sig": "8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 7E ?? B7 0D 01 48 8B C3 45 33 E4 44"
+      }
+    },
+    "SingletonClimate": {
+      "Climate_C": {
+        "value": "0xe4803c0",
+        "sig": "24 20 48 8B CB FF D0 80 3D 6A D4 B7 0D 00 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 50 D4 B7 0D 01 33 C9 E8 ?? ?? ?? ??"
+      },
+      "static_fields": "0xb8",
+      "Instance": "0x28"
+    },
+    "GameManager": {
+      "Static_fields": "0xb8",
+      "client": "0x10",
+      "Pool": "0x20",
+      "Stack": "0x18"
+    },
+    "ItemIcon": {
+      "ItemIcon_C": {
+        "value": "0xe460890",
+        "sig": "8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 7F ?? 00 09 01 48 8B 0D ?? ?? ?? ??"
+      },
+      "Static_fields": "0xc0",
+      "Instance": "0x18"
+    },
+    "PlayerEyes_Static": {
+      "PlayerEyes_C": {
+        "value": "0xe48e9d8",
+        "sig": "8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 F6 D1 BA 0C 01 48 8B 05 ?? ?? ?? ??"
+      },
+      "static_fields": "0xb8"
+    },
+    "BasePlayer_Static": {
+      "BasePlayer_C": {
+        "value": "0xe4d9fe8",
+        "sig": "CC CC CC CC CC CC CC CC CC 40 57 48 81 EC 80 00 00 00 80 3D 65 2A AB 0D 00 48 8B F9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 F3 29 AB 0D 01 80 BF A8 00"
+      },
+      "static_fields": "0xb8",
+      "visiblePlayerList": "0xf50"
+    },
+    "CameraUpdateHook_Static": {
+      "CameraUpdateHook_C": {
+        "value": "0xe5004c8",
+        "sig": "0D 22 49 6C 0C E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0"
+      },
+      "static_fields": "0xb8"
+    },
+    "Planner_Static": {
+      "Planner_C": {
+        "value": "0xe4c8f80",
+        "sig": "0D DB 44 81 0D E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 64 AD B5 0D 01 33 C0 48 89 44 24"
+      },
+      "static_fields": "0xb8"
+    },
+    "MapView_Static": {
+      "MapView_C": {
+        "value": "0xe4c6158",
+        "sig": "8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 B3 AF B7 0D 01 48 8B 0D ?? ?? ?? ??"
+      },
+      "static_fields": "0xb8"
+    },
+    "CraftingQueue_Static": {
+      "CraftingQueue_C": {
+        "value": "0xe49edd0",
+        "sig": "0D 7B ?? A6 09 E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 AC 7D ?? 09 01 48 8B 05 ?? ?? ?? ?? 83 B8 E0 00 00 00 00 75 ?? 48 8B C8 E8 10 AB CC"
+      },
+      "static_fields": "0xb8"
+    },
+    "WaterSystem_Static": {
+      "WaterSystem_C": {
+        "value": "0xe4809a8",
+        "sig": "00 0F 29 74 ?? 30 0F 28 F0 0F 29 7C ?? 20 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 6B 20 8F 0D 01 F3 0F 5F 35 EE CA 54"
+      },
+      "static_fields": "0xb8"
+    },
+    "BaseScreenShake_Static": {
+      "BaseScreenShake_C": {
+        "value": "0xe47dd08",
+        "sig": "83 EC 20 80 3D AC 86 92 0B 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 6D 86 92 0B 01 48 8B 05 AD CF 5C"
+      },
+      "static_fields": "0xb8"
+    },
+    "MainCamera": {
+      "MainCamera_C": {
+        "value": "0xe4c58f0",
+        "sig": "48 83 EC 20 80 3D 39 DD 70 ?? 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83"
+      },
+      "mainCamera": "0x58",
+      "mainCameraTransform": "0x78"
+    },
+    "SingletonComponent_MainCamera": {
+      "SingletonComponent_C": {
+        "value": "0xe42a638",
+        "sig": "0D B0 FE 41 0D E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0"
+      },
+      "Instance": "0x10"
+    },
+    "LocalPlayer_Static": {
+      "static_fields": "0xb8",
+      "Entity": "0x148"
+    },
+    "Performance_Static": {
+      "Performance_C": {
+        "value": "0xe526910",
+        "sig": "0D 6F FE ED 0C E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0"
+      },
+      "static_fields": "0xb8",
+      "fps": "0x49c"
+    },
+    "Buttons_Static": {
+      "static_fields": "0xb8"
+    },
+    "TOD_Sky_Static": {
+      "TOD_Sky_C": {
+        "value": "0xe48e260",
+        "sig": "8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 C6 05 66 82 ED 0D 01 48 8B 0D ?? ?? ?? ??"
+      },
+      "static_fields": "0xb8",
+      "Instance": "0x10"
+    },
+    "OcclusionCulling": {
+      "OcclusionCulling_C": {
+        "value": "0xe526dd8",
+        "sig": "0D 2D FA F4 0C E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0"
+      },
+      "static_fields": "0xb8"
+    },
+    "ModelState": {
+      "Flags": "0x68",
+      "WaterLevel": "0x60",
+      "Ducking": "0x64"
+    },
+    "Camera": {
+      "MainCamera_C": {
+        "value": "0xe4c58f0",
+        "sig": "48 83 EC 20 80 3D 39 DD 70 ?? 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83 0C 24 00 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? F0 83"
+      }
+    },
+    "Il2Cpp": {
+      "sTypeInfoDefinitionTable": "0xe80b3e8"
+    },
+    "SceneManager": {
+      "GetActiveScene": "0xbf40720"
+    }
+  },
+  "decryptions": {
+    "BaseNetworkable_Decryption": {
+      "base_networkable_one": {
+        "offset": "0x18",
+        "uses_key": false,
+        "is_loop": true,
+        "decrypt": "std::uintptr_t base_networkable_one(std::uintptr_t a1)\n{\n    std::uintptr_t rax = a1;\n    std::uintptr_t* rdx = &rax;\n    std::uint32_t r8d = 0x2;\n    uint32_t eax, ecx;\n\n    do {\n        eax = *(std::uint32_t*)(rdx);\n        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);\n        eax = eax + 0x49C8E325u;\n        eax = (eax << 0x05) | (eax >> 0x1B);\n        eax = eax + 0x3FF5E49Du;\n        eax = (eax << 0x0D) | (eax >> 0x13);\n        *((std::uint32_t*)rdx - 1) = eax;\n        --r8d;\n    } while (r8d);\n    return rax;\n}\n",
+        "encrypt": "std::uintptr_t encrypt_base_networkable_one(std::uintptr_t a1)\n{\n    std::uintptr_t rax = a1;\n    std::uintptr_t* rdx = &rax;\n    std::uint32_t r8d = 0x2;\n    uint32_t eax;\n\n    do {\n        eax = *(std::uint32_t*)(rdx);\n        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);\n        eax = (eax >> 0x0D) | (eax << 0x13);\n        eax = eax - 0x3FF5E49Du;\n        eax = (eax >> 0x05) | (eax << 0x1B);\n        eax = eax - 0x49C8E325u;\n        *((std::uint32_t*)rdx - 1) = eax;\n        --r8d;\n    } while (r8d);\n    return rax;\n}\n"
+      },
+      "base_networkable_two": {
+        "offset": "0x18",
+        "uses_key": false,
+        "is_loop": true,
+        "decrypt": "std::uintptr_t base_networkable_two(std::uintptr_t a1)\n{\n    std::uintptr_t rax = a1;\n    std::uintptr_t* rdx = &rax;\n    std::uint32_t r8d = 0x2;\n    uint32_t eax, ecx;\n\n    do {\n        eax = *(std::uint32_t*)(rdx);\n        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);\n        eax = eax ^ 0xCE5C4827u;\n        eax = eax + 0x693A1194u;\n        eax = (eax << 0x04) | (eax >> 0x1C);\n        eax = eax - 0x3E19D550u;\n        *((std::uint32_t*)rdx - 1) = eax;\n        --r8d;\n    } while (r8d);\n    return rax;\n}\n",
+        "encrypt": "std::uintptr_t encrypt_base_networkable_two(std::uintptr_t a1)\n{\n    std::uintptr_t rax = a1;\n    std::uintptr_t* rdx = &rax;\n    std::uint32_t r8d = 0x2;\n    uint32_t eax;\n\n    do {\n        eax = *(std::uint32_t*)(rdx);\n        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);\n        eax = eax + 0x3E19D550u;\n        eax = (eax >> 0x04) | (eax << 0x1C);\n        eax = eax - 0x693A1194u;\n        eax = eax ^ 0xCE5C4827u;\n        *((std::uint32_t*)rdx - 1) = eax;\n        --r8d;\n    } while (r8d);\n    return rax;\n}\n"
+      }
+    
