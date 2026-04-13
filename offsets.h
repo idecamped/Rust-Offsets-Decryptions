@@ -59,6 +59,7 @@ namespace Offsets
 		constexpr auto __Multimesh                             = 0x1f0;
 	}
 
+	// ItemContainer real: %f17b0f7dcd18fec1d35b1eaf171b45dc8327ea69
 	namespace PlayerInventory
 	{
 		constexpr auto ItemContainer                           = 0x28;
@@ -66,6 +67,7 @@ namespace Offsets
 		constexpr auto ContainerWear                           = 0x78;
 	}
 
+	// real: %646dec92f2e0392452ad1db4f4eede646e78dad9
 	namespace Item
 	{
 		constexpr auto ItemList                                = 0x40;
@@ -77,6 +79,7 @@ namespace Offsets
 		constexpr auto HeldEntity                              = 0x58;
 	}
 
+	// real: %f17b0f7dcd18fec1d35b1eaf171b45dc8327ea69
 	namespace ItemContainer
 	{
 		constexpr auto ItemList                                = 0x60;
@@ -185,6 +188,7 @@ namespace Offsets
 		constexpr auto mod                                     = 0x110;
 	}
 
+	// real: %ab5bfbc425bffcd97b6699eb3ccd08ec637267f7
 	namespace HitTest
 	{
 		constexpr auto HitTransform                            = 0x60;
@@ -296,12 +300,14 @@ namespace Offsets
 		constexpr auto state                                   = 0x28;
 	}
 
+	// real: %cc635d5fa753a0ffac59b1b4e63cf9f845795993
 	namespace InputState
 	{
 		constexpr auto current                                 = 0x18;
 		constexpr auto previous                                = 0x20;
 	}
 
+	// real: %4a61f8930700e60ffffb3af0e95e80b0b846ed75
 	namespace InputMessage
 	{
 		constexpr auto buttons                                 = 0x20;
@@ -1005,6 +1011,7 @@ namespace Offsets
 	namespace Il2Cpp
 	{
 		constexpr auto sTypeInfoDefinitionTable                = 0xe7e3b20;
+		constexpr auto Il2CppHandle                            = 0xe7df910;
 	}
 
 	namespace SceneManager
