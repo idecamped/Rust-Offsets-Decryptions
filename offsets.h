@@ -7,1035 +7,1042 @@ namespace Offsets
 {
 	namespace BasePlayer
 	{
-		constexpr auto playerNames                             = 0x2d8;
-		constexpr auto PlayerEyes                              = 0x670;
-		constexpr auto PlayerInventory                         = 0x460;
-		constexpr auto PlayerInput                             = 0x588;
-		constexpr auto PlayerMovement                          = 0x3a8;
-		constexpr auto PlayerModel                             = 0x6f8;
-		constexpr auto playerFlags                             = 0x630;
-		constexpr auto ModelState                              = 0x660;
-		constexpr auto currentTeam                             = 0x4b8;
-		constexpr auto clActiveItem                            = 0x4e8;
-		constexpr auto clothingBlocksAiming                    = 0x714;
-		constexpr auto clothingMoveSpeedReduction              = 0x718;
-		constexpr auto UserID                                  = 0x4d8;
-		constexpr auto SteamID                                 = 0x500;
-		constexpr auto metabolism                              = 0x658;
-		constexpr auto modifiers                               = 0x458;
-		constexpr auto clothingAccuracyBonus                   = 0x720;
-		constexpr auto clothingWaterSpeedBonus                 = 0x71c;
+		constexpr auto playerNames                             = 0x370; // player display name string
+		constexpr auto PlayerEyes                              = 0x2e0; // eyes/head camera component ref
+		constexpr auto PlayerInventory                         = 0x2d8; // inventory component ref
+		constexpr auto PlayerInput                             = 0x670; // input handler component ref
+		constexpr auto PlayerMovement                          = 0x500; // movement component ref
+		constexpr auto PlayerModel                             = 0x3a8; // skinned player model ref
+		constexpr auto playerFlags                             = 0x630; // bitmask: sleeping/wounded/ducking etc.
+		constexpr auto ModelState                              = 0x638; // model state ref (anim flags)
+		constexpr auto currentTeam                             = 0x4b8; // team ID this player belongs to
+		constexpr auto clActiveItem                            = 0x4e8; // currently held item ref
+		constexpr auto clothingBlocksAiming                    = 0x714; // clothing prevents ADS (bool)
+		constexpr auto clothingMoveSpeedReduction              = 0x718; // move speed penalty from clothing
+		constexpr auto UserID                                  = 0x4d8; // server-assigned user ID (ulong)
+		constexpr auto SteamID                                 = 0x398; // Steam 64-bit user ID
+		constexpr auto metabolism                              = 0x4a0; // metabolism component ref
+		constexpr auto modifiers                               = 0x468; // list of active stat modifiers
+		constexpr auto clothingAccuracyBonus                   = 0x720; // ADS accuracy bonus from clothing
+		constexpr auto clothingWaterSpeedBonus                 = 0x71c; // water speed bonus from clothing
 	}
 
 	namespace MainCamera
 	{
-		constexpr auto MainCamera_C                            = 0xe3dce78;
-		constexpr auto mainCameraTransform                     = 0x78;
+		constexpr auto MainCamera_C                            = 0xe4863e8; // Il2CppClass* RVA for MainCamera
+		constexpr auto mainCamera                              = 0xa0; // singleton Camera component ref
+		constexpr auto mainCameraTransform                     = 0x78; // cached Transform of main camera
 	}
 
 	namespace Camera
 	{
-		constexpr auto MainCamera_C                            = 0xe3dce78;
+		constexpr auto MainCamera_C                            = 0xe4863e8; // Il2CppClass* RVA for Camera class
 	}
 
 	namespace BaseNetworkable
 	{
-		constexpr auto BaseNetworkable_C                       = 0xe3d0568;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto wrapper_class_ptr                       = 0x8;
-		constexpr auto ClientEntities                          = 0x10;
-		constexpr auto Entity                                  = 0x10;
-		constexpr auto Buffer                                  = 0x18;
-		constexpr auto ArrayBase                               = 0x20;
+		constexpr auto BaseNetworkable_C                       = 0xe43c280;
+		constexpr auto parent_static_fields                    = 0x10; // [static_fields + 0x10] parent class static blob
+		constexpr auto static_fields                           = 0xb8; // [Il2CppClass* + 0xB8] static fields blob ptr
+		constexpr auto wrapper_class_ptr                       = 0x8; // [static_fields + 0x8] back-ptr to Il2CppClass*
+		constexpr auto ClientEntities                          = 0x18; // [static_fields + 0x18] IEntityList manager
+		constexpr auto EntityList                              = 0x10; // [ClientEntities + 0x10] entity list object
+		constexpr auto Buffer                                  = 0x18; 
+		constexpr auto ArrayBase                               = 0x20; 
 	}
 
 	namespace BaseEntity
 	{
-		constexpr auto model                                   = 0xf0;
-		constexpr auto Bounds                                  = 0xc8;
-		constexpr auto flags                                   = 0xf8;
-		constexpr auto skinID                                  = 0x100;
-		constexpr auto triggers                                = 0x168;
-		constexpr auto HasBrain                                = 0x110;
-		constexpr auto gameObject                              = 0xe0;
+		constexpr auto model                                   = 0xf0; // model/renderer component ref
+		constexpr auto Bounds                                  = 0xc8; // world-space bounding box
+		constexpr auto flags                                   = 0xf8; // entity flags bitmask
+		constexpr auto skinID                                  = 0x100; // applied skin ID (ulong)
+		constexpr auto triggers                                = 0xc0; // list of active trigger refs
+		constexpr auto HasBrain                                = 0x110; // entity has an AI brain (bool)
+		constexpr auto gameObject                              = 0xe0; // Unity GameObject ref
 	}
 
 	namespace BaseCombatEntity
 	{
-		constexpr auto LifeState                               = 0x270;
-		constexpr auto _health                                 = 0x278;
-		constexpr auto _maxHealth                              = 0x27c;
-		constexpr auto startHealth                             = 0x208;
-		constexpr auto skeletonProperties                      = 0x1f8;
-		constexpr auto baseProtection                          = 0x200;
-		constexpr auto ShowHealthInfo                          = 0x268;
+		constexpr auto LifeState                               = 0x270; // alive/dead/wounded state enum
+		constexpr auto _health                                 = 0x278; // current health (float)
+		constexpr auto _maxHealth                              = 0x27c; // maximum health (float)
+		constexpr auto startHealth                             = 0x208; // health value at spawn
+		constexpr auto skeletonProperties                      = 0x1f8; // hit box/skeleton data ref
+		constexpr auto baseProtection                          = 0x200; // base damage protection profile
+		constexpr auto ShowHealthInfo                          = 0x268; // show health bar flag (bool)
 	}
 
 	namespace PlayerModel
 	{
-		constexpr auto Position                                = 0x1f8;
-		constexpr auto Velocity                                = 0x204;
-		constexpr auto newVelocity                             = 0x210;
-		constexpr auto Rotation                                = 0x228;
-		constexpr auto GestureConfig                           = 0x378;
-		constexpr auto IsNpc__BackingField                     = 0x4c4;
-		constexpr auto __Multimesh                             = 0x358;
+		constexpr auto Position                                = 0x1f8; // networked world position (Vector3)
+		constexpr auto Velocity                                = 0x204; // networked velocity (Vector3)
+		constexpr auto newVelocity                             = 0x210; // latest received velocity update
+		constexpr auto Rotation                                = 0x228; // networked rotation (Quaternion)
+		constexpr auto GestureConfig                           = 0x378; // active gesture config ref
+		constexpr auto IsNpc__BackingField                     = 0x4c4; // is NPC model flag (bool)
+		constexpr auto __Multimesh                             = 0x2b8; // LOD multi-mesh renderer ref
 	}
 
 	namespace PlayerInventory
 	{
-		constexpr auto ItemContainer                           = 0x30;
-		constexpr auto ContainerBelt                           = 0x58;
-		constexpr auto ContainerWear                           = 0x78;
+		constexpr auto ItemContainer                           = 0x28; // main backpack container ref
+		constexpr auto ContainerBelt                           = 0x58; // belt/hotbar container ref
+		constexpr auto ContainerWear                           = 0x60; // clothing/wear container ref
 	}
 
 	namespace Item
 	{
-		constexpr auto ItemList                                = 0x40;
-		constexpr auto ItemDefinition                          = 0xd0;
-		constexpr auto Amount                                  = 0x20;
-		constexpr auto CurrentHealth                           = 0x10;
-		constexpr auto MaxHealth                               = 0x94;
-		constexpr auto ItemUID                                 = 0x30;
+		constexpr auto ItemList                                = 0x60; // List<Item> within the container
+		constexpr auto ItemDefinition                          = 0x48; // item definition/descriptor ref
+		constexpr auto Amount                                  = 0x1c; // stack count (int)
+		constexpr auto CurrentHealth                           = 0x18; // current durability (float)
+		constexpr auto MaxHealth                               = 0xd0; // max durability (float)
+		constexpr auto ItemUID                                 = 0xc0; // unique item ID (nested struct)
+		constexpr auto HeldEntity                              = 0x30; // deployed held entity/weapon ref
 	}
 
 	namespace ItemContainer
 	{
-		constexpr auto ItemList                                = 0x40;
-		constexpr auto Capacity                                = 0x10;
+		constexpr auto ItemList                                = 0x60; // List<Item> contents
+		constexpr auto Capacity                                = 0x10; // max item slot count
 	}
 
 	namespace List
 	{
-		constexpr auto Buffer                                  = 0x48;
-		constexpr auto Count                                   = 0x50;
-		constexpr auto ArrayBase                               = 0x58;
+		constexpr auto Buffer                                  = 0x18; // T[] backing array ptr
+		constexpr auto Count                                   = 0x20; // current element count (int)
+		constexpr auto ArrayBase                               = 0x28; // first element of the array
 	}
 
 	namespace HeldEntity
 	{
-		constexpr auto ViewModel                               = 0x268;
-		constexpr auto viewModel                               = 0x278;
-		constexpr auto hostileScore                            = 0x244;
+		constexpr auto ViewModel                               = 0x268; // first-person view model ref
+		constexpr auto viewModel                               = 0x278; // active view model component
+		constexpr auto hostileScore                            = 0x244; // AI hostile score of weapon
 	}
 
 	namespace BaseViewModel
 	{
-		constexpr auto IronSights                              = 0xa8;
-		constexpr auto AnimationEvents                         = 0xd8;
-		constexpr auto ViewmodelBob                            = 0xc0;
-		constexpr auto ViewmodelSway                           = 0xa0;
-		constexpr auto useViewModelCamera                      = 0x40;
-		constexpr auto lazyaimRegular                          = 0x28;
-		constexpr auto ListPTR                                 = 0x8;
+		constexpr auto IronSights                              = 0xe8; // iron sights component ref
+		constexpr auto AnimationEvents                         = 0xb8; // animation event handler ref
+		constexpr auto ViewmodelBob                            = 0x98; // weapon bob settings ref
+		constexpr auto ViewmodelSway                           = 0x88; // weapon sway settings ref
+		constexpr auto useViewModelCamera                      = 0x40; // use dedicated VM camera (bool)
+		constexpr auto lazyaimRegular                          = 0x28; // lazy aim properties ref
 	}
 
 	namespace AnimationEvents
 	{
-		constexpr auto targetEntity                            = 0x28;
+		constexpr auto targetEntity                            = 0x28; // entity this animation targets
 	}
 
 	namespace ItemDefinition
 	{
-		constexpr auto shortname                               = 0x28;
-		constexpr auto itemid                                  = 0x20;
-		constexpr auto displayName                             = 0x40;
-		constexpr auto ItemMod                                 = 0x160;
-		constexpr auto category                                = 0x58;
-		constexpr auto rarity                                  = 0x90;
-		constexpr auto stackable                               = 0x78;
-		constexpr auto condition                               = 0xb8;
+		constexpr auto shortname                               = 0x28; // short identifier string (e.g. "rifle.ak")
+		constexpr auto itemid                                  = 0x20; // unique numeric item ID (int)
+		constexpr auto displayName                             = 0x40; // localized display name phrase ref
+		constexpr auto ItemMod                                 = 0x160; // array of item mods/attachments
+		constexpr auto category                                = 0x58; // item category enum
+		constexpr auto rarity                                  = 0x90; // rarity enum
+		constexpr auto stackable                               = 0x78; // max stack size (int)
+		constexpr auto condition                               = 0xb8; // has durability/condition (bool)
 	}
 
 	namespace Translate_Phrase
 	{
-		constexpr auto English                                 = 0x10;
+		constexpr auto English                                 = 0x10; // English string value
 	}
 
 	namespace ItemModWearable
 	{
-		constexpr auto blocksAiming                            = 0x5c;
-		constexpr auto occlusionType                           = 0x58;
+		constexpr auto blocksAiming                            = 0x5c; // wearing blocks ADS (bool)
+		constexpr auto occlusionType                           = 0x58; // visual occlusion type enum
 	}
 
 	namespace AttackEntity
 	{
-		constexpr auto repeatDelay                             = 0x294;
-		constexpr auto deployDelay                             = 0x290;
-		constexpr auto effectiveRange                          = 0x29c;
-		constexpr auto npcDamageScale                          = 0x2a0;
-		constexpr auto aiAimSwayOffset                         = 0x2b0;
-		constexpr auto aiAimCone                               = 0x2b4;
-		constexpr auto aiOnlyInRange                           = 0x2b8;
+		constexpr auto repeatDelay                             = 0x294; // fire rate delay (float)
+		constexpr auto deployDelay                             = 0x290; // deploy animation delay (float)
+		constexpr auto effectiveRange                          = 0x29c; // effective engagement range
+		constexpr auto npcDamageScale                          = 0x2a0; // damage multiplier vs NPCs
+		constexpr auto aiAimSwayOffset                         = 0x2b0; // AI aiming sway offset
+		constexpr auto aiAimCone                               = 0x2b4; // AI aim cone angle (float)
+		constexpr auto aiOnlyInRange                           = 0x2b8; // AI only attacks in effective range
 	}
 
 	namespace BaseProjectile
 	{
-		constexpr auto reloadTime                              = 0x378;
-		constexpr auto recoil                                  = 0x3a8;
-		constexpr auto primaryMagazine                         = 0x380;
-		constexpr auto aimconePenalty                          = 0x3f8;
-		constexpr auto aimCone                                 = 0x3b8;
-		constexpr auto aimconePenaltyPerShot                   = 0x3c0;
-		constexpr auto aimSway                                 = 0x3a0;
-		constexpr auto aimSwaySpeed                            = 0x3a4;
-		constexpr auto stancePenaltyScale                      = 0x3d0;
-		constexpr auto aimConePenaltyMax                       = 0x3c4;
-		constexpr auto automatic                               = 0x338;
-		constexpr auto hipAimCone                              = 0x3bc;
-		constexpr auto isBurstWeapon                           = 0x3df;
-		constexpr auto canChangeFireModes                      = 0x3e0;
-		constexpr auto internalBurstFireRateScale              = 0x3e8;
-		constexpr auto IsReloading                             = 0x45c;
-		constexpr auto noAimingWhileCycling                    = 0x3d5;
-		constexpr auto projectileVelocityScale                 = 0x334;
-		constexpr auto turretDamageScale                       = 0x33c;
-		constexpr auto damageScale                             = 0x32c;
-		constexpr auto distanceScale                           = 0x330;
-		constexpr auto aimconeCurve                            = 0x3b0;
+		constexpr auto reloadTime                              = 0x378; // reload duration (float)
+		constexpr auto recoil                                  = 0x3a8; // recoil properties ref
+		constexpr auto primaryMagazine                         = 0x380; // magazine instance ref
+		constexpr auto aimconePenalty                          = 0x3f8; // current accumulated aimcone penalty
+		constexpr auto aimCone                                 = 0x3b8; // base aimcone angle (float)
+		constexpr auto aimconePenaltyPerShot                   = 0x3c0; // aimcone added per shot fired
+		constexpr auto aimSway                                 = 0x3a0; // aim sway component ref
+		constexpr auto aimSwaySpeed                            = 0x3a4; // sway animation speed (float)
+		constexpr auto stancePenaltyScale                      = 0x3d0; // stance aimcone penalty scale
+		constexpr auto aimConePenaltyMax                       = 0x3c4; // max aimcone penalty cap
+		constexpr auto automatic                               = 0x338; // is fully automatic (bool)
+		constexpr auto hipAimCone                              = 0x3bc; // hip-fire aimcone angle
+		constexpr auto isBurstWeapon                           = 0x3df; // fires in bursts (bool)
+		constexpr auto canChangeFireModes                      = 0x3e0; // can toggle fire modes (bool)
+		constexpr auto internalBurstFireRateScale              = 0x3e8; // burst fire rate multiplier
+		constexpr auto IsReloading                             = 0x45c; // currently reloading (bool)
+		constexpr auto noAimingWhileCycling                    = 0x3d5; // block ADS while cycling (bool)
+		constexpr auto projectileVelocityScale                 = 0x334; // projectile speed multiplier
+		constexpr auto turretDamageScale                       = 0x33c; // damage scale vs turrets
+		constexpr auto damageScale                             = 0x32c; // base damage multiplier
+		constexpr auto distanceScale                           = 0x330; // damage falloff scale
+		constexpr auto aimconeCurve                            = 0x3b0; // aimcone recovery curve ref
 	}
 
 	namespace Projectile
 	{
-		constexpr auto initialVelocity                         = 0x28;
-		constexpr auto thickness                               = 0x3c;
-		constexpr auto velocity                                = 0x15c;
-		constexpr auto position                                = 0x168;
-		constexpr auto sentPosition                            = 0x180;
-		constexpr auto previousPosition                        = 0x18c;
-		constexpr auto previousVelocity                        = 0x198;
-		constexpr auto projectileID                            = 0x20;
-		constexpr auto owner                                   = 0x128;
-		constexpr auto hitTest                                 = 0x108;
-		constexpr auto drag                                    = 0x34;
-		constexpr auto gravityModifier                         = 0x38;
-		constexpr auto traveledDistance                        = 0x174;
-		constexpr auto mod                                     = 0x110;
+		constexpr auto initialVelocity                         = 0x28; // launch velocity vector
+		constexpr auto thickness                               = 0x3c; // projectile radius for sweep
+		constexpr auto velocity                                = 0x15c; // current velocity vector
+		constexpr auto position                                = 0x168; // current world position
+		constexpr auto sentPosition                            = 0x180; // last server-sent position
+		constexpr auto previousPosition                        = 0x18c; // previous frame position
+		constexpr auto previousVelocity                        = 0x198; // previous frame velocity
+		constexpr auto projectileID                            = 0x20; // server-assigned projectile ID
+		constexpr auto owner                                   = 0x1d8; // firing entity ref
+		constexpr auto hitTest                                 = 0x128; // hit detection object ref
+		constexpr auto drag                                    = 0x34; // aerodynamic drag coefficient
+		constexpr auto gravityModifier                         = 0x38; // gravity scale (float)
+		constexpr auto traveledDistance                        = 0x174; // total distance traveled
+		constexpr auto mod                                     = 0x108; // ItemModProjectile ref
 	}
 
 	namespace HitTest
 	{
-		constexpr auto HitTransform                            = 0xc8;
-		constexpr auto HitEntity                               = 0x50;
-		constexpr auto type                                    = 0x1c;
-		constexpr auto Radius                                  = 0x10;
-		constexpr auto didHit                                  = 0x18;
-		constexpr auto HitNormal                               = 0x20;
-		constexpr auto HitPoint                                = 0xb8;
-		constexpr auto damageProperties                        = 0xa8;
-		constexpr auto HitDistance                             = 0x14;
-		constexpr auto MultiHit                                = 0x74;
-		constexpr auto attackRay                               = 0x58;
-		constexpr auto collider                                = 0x38;
-		constexpr auto gameObject                              = 0xd0;
-		constexpr auto Bone                                    = 0xc8;
+		constexpr auto HitTransform                            = 0xa8; // hit bone transform ref
+		constexpr auto HitEntity                               = 0x50; // entity that was hit
+		constexpr auto type                                    = 0xd0; // hit type enum
+		constexpr auto Radius                                  = 0x10; // sweep test radius
+		constexpr auto didHit                                  = 0x24; // whether test produced a hit
+		constexpr auto HitNormal                               = 0x60; // surface normal at hit point
+		constexpr auto HitPoint                                = 0xb0; // world position of hit
+		constexpr auto damageProperties                        = 0x58; // damage profile of hit ref
+		constexpr auto HitDistance                             = 0x20; // distance to hit (float)
+		constexpr auto MultiHit                                = 0x25; // multi-hit enabled (bool)
+		constexpr auto attackRay                               = 0x30; // ray origin + direction
+		constexpr auto collider                                = 0x18; // Unity collider that was hit
+		constexpr auto gameObject                              = 0xd8; // GameObject that was hit
+		constexpr auto Bone                                    = 0xa8; // hit bone transform
 	}
 
 	namespace RecoilProperties
 	{
-		constexpr auto recoilYawMin                            = 0x18;
-		constexpr auto recoilYawMax                            = 0x1c;
-		constexpr auto recoilPitchMin                          = 0x20;
-		constexpr auto recoilPitchMax                          = 0x24;
-		constexpr auto aimconeCurveScale                       = 0x60;
-		constexpr auto newRecoilOverride                       = 0x80;
-		constexpr auto timeToTakeMin                           = 0x28;
-		constexpr auto timeToTakeMax                           = 0x2c;
-		constexpr auto ADSScale                                = 0x30;
-		constexpr auto movementPenalty                         = 0x34;
-		constexpr auto clampPitch                              = 0x38;
-		constexpr auto pitchCurve                              = 0x40;
-		constexpr auto yawCurve                                = 0x48;
-		constexpr auto shotsUntilMax                           = 0x54;
-		constexpr auto maxRecoilRadius                         = 0x58;
+		constexpr auto recoilYawMin                            = 0x18; // min horizontal recoil (float)
+		constexpr auto recoilYawMax                            = 0x1c; // max horizontal recoil (float)
+		constexpr auto recoilPitchMin                          = 0x20; // min vertical recoil down (float)
+		constexpr auto recoilPitchMax                          = 0x24; // max vertical recoil up (float)
+		constexpr auto aimconeCurveScale                       = 0x60; // aimcone recovery scale
+		constexpr auto newRecoilOverride                       = 0x80; // override recoil object ref
+		constexpr auto timeToTakeMin                           = 0x28; // min time for recoil to apply
+		constexpr auto timeToTakeMax                           = 0x2c; // max time for recoil to apply
+		constexpr auto ADSScale                                = 0x30; // ADS recoil reduction scale
+		constexpr auto movementPenalty                         = 0x34; // recoil penalty while moving
+		constexpr auto clampPitch                              = 0x38; // max pitch clamp angle
+		constexpr auto pitchCurve                              = 0x40; // vertical recoil curve ref
+		constexpr auto yawCurve                                = 0x48; // horizontal recoil curve ref
+		constexpr auto shotsUntilMax                           = 0x54; // shots before max recoil reached
+		constexpr auto maxRecoilRadius                         = 0x58; // max recoil circle radius
 	}
 
 	namespace HackableLockedCrate
 	{
-		constexpr auto TimerText                               = 0x3d8;
+		constexpr auto TimerText                               = 0x3d8; // UI text ref for hack timer display
 	}
 
 	namespace BuildingPrivlidge
 	{
-		constexpr auto UpkeepTime                              = 0x3cc;
-		constexpr auto authorizedPlayers                       = 0x3c0;
+		constexpr auto UpkeepTime                              = 0x3cc; // seconds until decay/upkeep due
+		constexpr auto authorizedPlayers                       = 0x3c0; // list of authorized player entries
 	}
 
 	namespace PatrolHelicopter
 	{
-		constexpr auto weakspots                               = 0x420;
-		constexpr auto spotlightTarget                         = 0x3d0;
-		constexpr auto maxCratesToSpawn                        = 0x358;
-		constexpr auto bulletDamage                            = 0x360;
-		constexpr auto bulletSpeed                             = 0x35c;
-		constexpr auto myAI                                    = 0x3a0;
+		constexpr auto weakspots                               = 0x430; // array of weak spot refs
+		constexpr auto spotlightTarget                         = 0x3d8; // entity being spotlighted
+		constexpr auto maxCratesToSpawn                        = 0x358; // loot crates spawned on death
+		constexpr auto bulletDamage                            = 0x360; // gun bullet damage (float)
+		constexpr auto bulletSpeed                             = 0x35c; // gun bullet speed (float)
+		constexpr auto myAI                                    = 0x3a8; // helicopter AI component ref
 	}
 
 	namespace CompoundBowWeapon
 	{
-		constexpr auto stringHoldDurationMax                   = 0x478;
-		constexpr auto movementPenaltyRampUpTime               = 0x488;
+		constexpr auto stringHoldDurationMax                   = 0x478; // max hold time for full power draw
+		constexpr auto movementPenaltyRampUpTime               = 0x488; // ramp time for movement penalty
 	}
 
 	namespace FlintStrikeWeapon
 	{
-		constexpr auto successFraction                         = 0x460;
-		constexpr auto _didSparkThisFrame                      = 0x470;
+		constexpr auto successFraction                         = 0x460; // spark success probability (float)
+		constexpr auto _didSparkThisFrame                      = 0x470; // sparked this frame (bool)
 	}
 
 	namespace BowWeapon
 	{
-		constexpr auto attackReady                             = 0x470;
-		constexpr auto nopullback                              = 0x464;
+		constexpr auto attackReady                             = 0x470; // bow fully drawn and ready (bool)
+		constexpr auto nopullback                              = 0x464; // skip pullback animation (bool)
 	}
 
 	namespace SkinnedMultiMeshRenderers
 	{
-		constexpr auto Renderers__BackingField                 = 0x40;
+		constexpr auto Renderers__BackingField                 = 0x40; // backing array of renderer refs
 	}
 
 	namespace Model
 	{
-		constexpr auto bone_array                              = 0x50;
+		constexpr auto bone_array                              = 0x50; // array of bone transforms
 	}
 
 	namespace ActiveItem
 	{
-		constexpr auto clActiveItem                            = 0x4e8;
+		constexpr auto clActiveItem                            = 0x4e8; // currently held item slot ref
 	}
 
 	namespace Magazine
 	{
-		constexpr auto definition                              = 0x20;
-		constexpr auto capacity                                = 0x18;
-		constexpr auto contents                                = 0x1c;
-		constexpr auto ammoType                                = 0x20;
+		constexpr auto definition                              = 0x20; // ammo item definition ref
+		constexpr auto capacity                                = 0x18; // max ammo count (int)
+		constexpr auto contents                                = 0x1c; // current ammo count (int)
+		constexpr auto ammoType                                = 0x20; // ammo item definition ref (alias)
 	}
 
 	namespace PlayerEyes
 	{
-		constexpr auto bodyRotation                            = 0x50;
-		constexpr auto viewOffset                              = 0x28;
-		constexpr auto rotationLook                            = 0x6c;
+		constexpr auto bodyRotation                            = 0x50; // player body rotation (Quaternion)
+		constexpr auto viewOffset                              = 0x28; // camera view offset from root
+		constexpr auto rotationLook                            = 0x6c; // look rotation angles (Vector2)
 	}
 
 	namespace PlayerInput
 	{
-		constexpr auto state                                   = 0x28;
+		constexpr auto state                                   = 0x28; // current InputState ref
 	}
 
+	// real: %c4b808497aab6987e3dc38191325735b393a983d
 	namespace InputState
 	{
-		constexpr auto current                                 = 0x18;
-		constexpr auto previous                                = 0x20;
+		constexpr auto current                                 = 0x10; // current frame InputMessage ref
+		constexpr auto previous                                = 0x20; // previous frame InputMessage ref
 	}
 
 	namespace InputMessage
 	{
-		constexpr auto buttons                                 = 0x2c;
-		constexpr auto aimAngles                               = 0x10;
-		constexpr auto mouseDelta                              = 0x1c;
+		constexpr auto buttons                                 = 0x14; // bitmask of pressed buttons
+		constexpr auto aimAngles                               = 0x1c; // aim angles pitch/yaw (Vector2)
+		constexpr auto mouseDelta                              = 0x28; // raw mouse delta this frame
 	}
 
 	namespace PlayerWalkMovement
 	{
-		constexpr auto groundAngle                             = 0x70;
-		constexpr auto groundAngleNew                          = 0x78;
-		constexpr auto capsule                                 = 0xf0;
-		constexpr auto groundVelocity                          = 0x128;
-		constexpr auto ladder                                  = 0xd8;
+		constexpr auto groundAngle                             = 0x70; // current ground slope angle
+		constexpr auto groundAngleNew                          = 0x78; // updated ground slope angle
+		constexpr auto capsule                                 = 0xd8; // character capsule collider ref
+		constexpr auto groundVelocity                          = 0x128; // velocity relative to ground
+		constexpr auto ladder                                  = 0xe8; // ladder being climbed ref
 	}
 
 	namespace BaseMelee
 	{
-		constexpr auto effectiveRange                          = 0x29c;
-		constexpr auto attackRadius                            = 0x344;
-		constexpr auto maxDistance                             = 0x340;
-		constexpr auto gathering                               = 0x378;
-		constexpr auto damageProperties                        = 0x328;
-		constexpr auto canThrowAsProjectile                    = 0x381;
-		constexpr auto aiStrikeDelay                           = 0x35c;
+		constexpr auto effectiveRange                          = 0x29c; // melee effective range (float)
+		constexpr auto attackRadius                            = 0x344; // hit sweep sphere radius
+		constexpr auto maxDistance                             = 0x340; // max hit detection distance
+		constexpr auto gathering                               = 0x378; // resource gathering component ref
+		constexpr auto damageProperties                        = 0x328; // damage type profile ref
+		constexpr auto canThrowAsProjectile                    = 0x381; // can be thrown (bool)
+		constexpr auto aiStrikeDelay                           = 0x35c; // AI strike timing delay
 	}
 
 	namespace FlameThrower
 	{
-		constexpr auto fuelPerSec                              = 0x398;
-		constexpr auto flameRange                              = 0x340;
-		constexpr auto ammo                                    = 0x32c;
+		constexpr auto fuelPerSec                              = 0x398; // fuel consumption per second
+		constexpr auto flameRange                              = 0x340; // flame effective range
+		constexpr auto ammo                                    = 0x32c; // current fuel/ammo amount
 	}
 
 	namespace BaseMountable
 	{
-		constexpr auto mountedPlayer                           = 0x2a8;
-		constexpr auto canWieldItems                           = 0x2e4;
-		constexpr auto isMobile                                = 0x391;
-		constexpr auto canDrinkWhileMounted                    = 0x380;
+		constexpr auto mountedPlayer                           = 0x2a8; // player currently mounted ref
+		constexpr auto canWieldItems                           = 0x2e4; // player can use items while mounted
+		constexpr auto isMobile                                = 0x391; // is a moving mount/vehicle (bool)
+		constexpr auto canDrinkWhileMounted                    = 0x380; // can drink while riding (bool)
 	}
 
 	namespace AutoTurret
 	{
-		constexpr auto sightRange                              = 0x450;
-		constexpr auto aimCone                                 = 0x4b0;
-		constexpr auto targetTrigger                           = 0x4f0;
-		constexpr auto target                                  = 0x418;
-		constexpr auto bulletSpeed                             = 0x3c8;
+		constexpr auto sightRange                              = 0x450; // target detection range (float)
+		constexpr auto aimCone                                 = 0x4b0; // aiming accuracy cone (float)
+		constexpr auto targetTrigger                           = 0x4f0; // trigger zone for target detection
+		constexpr auto target                                  = 0x418; // current target entity ref
+		constexpr auto bulletSpeed                             = 0x3c8; // projectile speed (float)
 	}
 
 	namespace Recycler
 	{
-		constexpr auto recycleEfficiency                       = 0x398;
+		constexpr auto recycleEfficiency                       = 0x398; // fraction of resources returned
 	}
 
 	namespace Object
 	{
-		constexpr auto m_CachedPtr                             = 0x10;
+		constexpr auto m_CachedPtr                             = 0x10; // cached native Unity object ptr
 	}
 
 	namespace BaseNetworkable_Fields
 	{
-		constexpr auto prefabID                                = 0x30;
+		constexpr auto prefabID                                = 0x30; // prefab ID hash for this entity
 	}
 
 	namespace IronSights
 	{
-		constexpr auto aimSway                                 = 0x28;
-		constexpr auto aimSwaySpeed                            = 0x2c;
+		constexpr auto aimSway                                 = 0x28; // sway intensity while ADS
+		constexpr auto aimSwaySpeed                            = 0x2c; // sway speed while ADS
 	}
 
 	namespace SkeletonProperties
 	{
-		constexpr auto bones                                   = 0x20;
+		constexpr auto bones                                   = 0x20; // array of bone property entries
 	}
 
 	namespace ProtectionProperties
 	{
-		constexpr auto amounts                                 = 0x28;
+		constexpr auto amounts                                 = 0x28; // float[] protection per damage type
 	}
 
 	namespace WorldItem
 	{
-		constexpr auto allowPickup                             = 0x1d8;
+		constexpr auto allowPickup                             = 0x1d8; // players can pick this up (bool)
 	}
 
 	namespace CodeLock
 	{
-		constexpr auto hasCode                                 = 0x248;
-		constexpr auto hasGuestCode                            = 0x258;
+		constexpr auto hasCode                                 = 0x248; // a code has been set (bool)
+		constexpr auto hasGuestCode                            = 0x258; // a guest code is set (bool)
 	}
 
 	namespace StorageContainer
 	{
-		constexpr auto isLootable                              = 0x305;
-		constexpr auto inventorySlots                          = 0x2f8;
-		constexpr auto panelName                               = 0x308;
-		constexpr auto onlyOneUser                             = 0x374;
+		constexpr auto isLootable                              = 0x305; // can be looted by players (bool)
+		constexpr auto inventorySlots                          = 0x2f8; // slot count (int)
+		constexpr auto panelName                               = 0x308; // UI loot panel name string
+		constexpr auto onlyOneUser                             = 0x374; // single-user loot lock (bool)
 	}
 
 	namespace PlayerLoot
 	{
-		constexpr auto entitySource                            = 0x28;
-		constexpr auto containers                              = 0x38;
+		constexpr auto entitySource                            = 0x28; // entity being looted ref
+		constexpr auto containers                              = 0x38; // list of open containers
 	}
 
 	namespace DroppedItemContainer
 	{
-		constexpr auto playerName                              = 0x2a8;
-		constexpr auto playerSteamID                           = 0x2c0;
+		constexpr auto playerName                              = 0x2a8; // name of player who dropped it
+		constexpr auto playerSteamID                           = 0x2c0; // SteamID of player who dropped it
 	}
 
 	namespace ItemModProjectile
 	{
-		constexpr auto projectileVelocity                      = 0x40;
-		constexpr auto projectileVelocitySpread                = 0x44;
-		constexpr auto numProjectiles                          = 0x38;
-		constexpr auto spread                                  = 0x3c;
-		constexpr auto projectileObject                        = 0x20;
+		constexpr auto projectileVelocity                      = 0x40; // base projectile speed (float)
+		constexpr auto projectileVelocitySpread                = 0x44; // speed variance (float)
+		constexpr auto numProjectiles                          = 0x38; // pellets per shot (int)
+		constexpr auto spread                                  = 0x3c; // per-projectile spread angle
+		constexpr auto projectileObject                        = 0x20; // prefab to spawn ref
 	}
 
 	namespace ProjectileWeaponMod
 	{
-		constexpr auto sightAimConeScale                       = 0x1d8;
-		constexpr auto sightAimConeOffset                      = 0x268;
-		constexpr auto hipAimConeScale                         = 0x280;
-		constexpr auto hipAimConeOffset                        = 0x288;
+		constexpr auto sightAimConeScale                       = 0x1d8; // ADS aimcone multiplier from mod
+		constexpr auto sightAimConeOffset                      = 0x268; // ADS aimcone additive offset
+		constexpr auto hipAimConeScale                         = 0x280; // hip aimcone multiplier
+		constexpr auto hipAimConeOffset                        = 0x288; // hip aimcone additive offset
 	}
 
 	namespace Construction
 	{
-		constexpr auto canBypassBuildingPermission             = 0xc0;
+		constexpr auto canBypassBuildingPermission             = 0xc0; // no TC permission needed (bool)
 	}
 
 	namespace BuildingBlock
 	{
-		constexpr auto grade                                   = 0x330;
-		constexpr auto blockDefinition                         = 0x300;
+		constexpr auto grade                                   = 0x330; // build grade enum (wood/stone/metal/HQ)
+		constexpr auto blockDefinition                         = 0x2f8; // block shape definition ref
 	}
 
 	namespace GrowableEntity
 	{
-		constexpr auto Properties                              = 0x2f8;
+		constexpr auto Properties                              = 0x2f8; // plant property data ref
 	}
 
 	namespace PlantProperties
 	{
-		constexpr auto WaterIntake                             = 0x54;
-		constexpr auto MaxSeasons                              = 0x50;
+		constexpr auto WaterIntake                             = 0x54; // water consumption rate (float)
+		constexpr auto MaxSeasons                              = 0x50; // seasons before plant dies (int)
 	}
 
 	namespace MedicalTool
 	{
-		constexpr auto healDurationSelf                        = 0x328;
-		constexpr auto maxDistanceOther                        = 0x334;
+		constexpr auto healDurationSelf                        = 0x328; // self-heal animation duration
+		constexpr auto maxDistanceOther                        = 0x334; // max range to heal others
 	}
 
 	namespace Chainsaw
 	{
-		constexpr auto fuelPerSec                              = 0x3d4;
-		constexpr auto maxAmmo                                 = 0x3d8;
+		constexpr auto fuelPerSec                              = 0x3d4; // fuel burn rate per second
+		constexpr auto maxAmmo                                 = 0x3d8; // max fuel capacity (int)
 	}
 
 	namespace SamSite
 	{
-		constexpr auto currentAimDir                           = 0x3b4;
-		constexpr auto vehicleScanRadius                       = 0x3cc;
-		constexpr auto staticRespawn                           = 0x3e8;
-		constexpr auto projectileTest                          = 0x3d8;
+		constexpr auto currentAimDir                           = 0x3b4; // current aim direction vector
+		constexpr auto vehicleScanRadius                       = 0x3cc; // target scan radius (float)
+		constexpr auto staticRespawn                           = 0x3e8; // respawns after destroyed (bool)
+		constexpr auto projectileTest                          = 0x3d8; // projectile hit test ref
 	}
 
 	namespace TimedExplosive
 	{
-		constexpr auto timerAmountMin                          = 0x1d8;
-		constexpr auto timerAmountMax                          = 0x1dc;
-		constexpr auto explosionRadius                         = 0x1e4;
-		constexpr auto stickEffect                             = 0x210;
-		constexpr auto damageTypes                             = 0x250;
+		constexpr auto timerAmountMin                          = 0x1d8; // min fuse time (float)
+		constexpr auto timerAmountMax                          = 0x1dc; // max fuse time (float)
+		constexpr auto explosionRadius                         = 0x1e4; // blast radius (float)
+		constexpr auto stickEffect                             = 0x210; // sticky effect prefab ref
+		constexpr auto damageTypes                             = 0x250; // list of damage types applied
 	}
 
 	namespace GrenadeWeapon
 	{
-		constexpr auto maxThrowVelocity                        = 0x330;
+		constexpr auto maxThrowVelocity                        = 0x330; // max throw speed (float)
 	}
 
 	namespace ThrownWeapon
 	{
-		constexpr auto maxThrowVelocity                        = 0x330;
+		constexpr auto maxThrowVelocity                        = 0x330; // max throw speed (float)
 	}
 
 	namespace ServerProjectile
 	{
-		constexpr auto speed                                   = 0x3c;
-		constexpr auto gravityModifier                         = 0x38;
-		constexpr auto drag                                    = 0x34;
+		constexpr auto speed                                   = 0x3c; // current flight speed (float)
+		constexpr auto gravityModifier                         = 0x38; // gravity scale (float)
+		constexpr auto drag                                    = 0x34; // drag coefficient (float)
 	}
 
 	namespace PlayerCorpse
 	{
-		constexpr auto buoyancy                                = 0x310;
-		constexpr auto underwearSkin                           = 0x318;
+		constexpr auto buoyancy                                = 0x310; // corpse floats in water ref
+		constexpr auto underwearSkin                           = 0x318; // underwear skin ID (ulong)
 	}
 
 	namespace MapView
 	{
-		constexpr auto mapImage                                = 0x20;
-		constexpr auto scrollRect                              = 0x40;
+		constexpr auto mapImage                                = 0x20; // map texture/image ref
+		constexpr auto scrollRect                              = 0x40; // scroll rect UI component ref
 	}
 
 	namespace Planner
 	{
-		constexpr auto CurrentConstruction                     = 0x2c0;
+		constexpr auto CurrentConstruction                     = 0x2b8; // construction being placed ref
 	}
 
 	namespace GestureConfig
 	{
-		constexpr auto gestureId                               = 0x18;
-		constexpr auto gestureCommand                          = 0x20;
-		constexpr auto duration                                = 0x4c;
+		constexpr auto gestureId                               = 0x18; // gesture ID hash (int)
+		constexpr auto gestureCommand                          = 0x20; // console command string ref
+		constexpr auto duration                                = 0x4c; // gesture animation duration
 	}
 
 	namespace BaseFishingRod
 	{
-		constexpr auto FishCatchDistance                       = 0x298;
-		constexpr auto MaxCastDistance                         = 0x2d4;
+		constexpr auto FishCatchDistance                       = 0x298; // max fish catch distance
+		constexpr auto MaxCastDistance                         = 0x2d4; // max cast range (float)
 	}
 
 	namespace ColliderInfo
 	{
-		constexpr auto flags                                   = 0x20;
+		constexpr auto flags                                   = 0x20; // collider property flags bitmask
 	}
 
 	namespace PlayerMetabolism
 	{
-		constexpr auto temperature                             = 0x48;
-		constexpr auto comfort                                 = 0x88;
-		constexpr auto radiation_level                         = 0x58;
-		constexpr auto radiation_poison                        = 0x60;
-		constexpr auto bleeding                                = 0x80;
-		constexpr auto oxygen                                  = 0x78;
-		constexpr auto wetness                                 = 0x68;
-		constexpr auto dirtyness                               = 0x70;
-		constexpr auto pending_health                          = 0x90;
+		constexpr auto temperature                             = 0x48; // body temperature attribute ref
+		constexpr auto comfort                                 = 0x88; // comfort level attribute ref
+		constexpr auto radiation_level                         = 0x58; // current radiation exposure ref
+		constexpr auto radiation_poison                        = 0x60; // accumulated radiation poison ref
+		constexpr auto bleeding                                = 0x80; // bleeding rate attribute ref
+		constexpr auto oxygen                                  = 0x78; // oxygen level attribute ref
+		constexpr auto wetness                                 = 0x68; // wetness level attribute ref
+		constexpr auto dirtyness                               = 0x70; // dirtiness attribute ref
+		constexpr auto pending_health                          = 0x90; // queued health regen amount ref
 	}
 
 	namespace MetabolismAttribute
 	{
-		constexpr auto value                                   = 0x20;
-		constexpr auto min                                     = 0x18;
-		constexpr auto max                                     = 0x1c;
-		constexpr auto startMin                                = 0x10;
-		constexpr auto startMax                                = 0x14;
+		constexpr auto value                                   = 0x20; // current value (float)
+		constexpr auto min                                     = 0x18; // minimum clamp value (float)
+		constexpr auto max                                     = 0x1c; // maximum clamp value (float)
+		constexpr auto startMin                                = 0x10; // initial minimum (float)
+		constexpr auto startMax                                = 0x14; // initial maximum (float)
 	}
 
 	namespace BaseMovement
 	{
-		constexpr auto Owner                                   = 0x28;
+		constexpr auto Owner                                   = 0x28; // player that owns this movement
 	}
 
 	namespace LazyAimProperties
 	{
-		constexpr auto snapStrength                            = 0x18;
-		constexpr auto deadzoneAngle                           = 0x1c;
+		constexpr auto snapStrength                            = 0x18; // aim snap/magnetism strength
+		constexpr auto deadzoneAngle                           = 0x1c; // deadzone angle for lazy aim
 	}
 
 	namespace ViewmodelBob
 	{
-		constexpr auto bobSpeedWalk                            = 0x20;
-		constexpr auto bobSpeedRun                             = 0x24;
-		constexpr auto bobAmountWalk                           = 0x28;
-		constexpr auto bobAmountRun                            = 0x2c;
+		constexpr auto bobSpeedWalk                            = 0x20; // bob cycle speed while walking
+		constexpr auto bobSpeedRun                             = 0x24; // bob cycle speed while running
+		constexpr auto bobAmountWalk                           = 0x28; // bob displacement while walking
+		constexpr auto bobAmountRun                            = 0x2c; // bob displacement while running
 	}
 
 	namespace ViewmodelSway
 	{
-		constexpr auto positionalSwaySpeed                     = 0x20;
-		constexpr auto positionalSwayAmount                    = 0x24;
-		constexpr auto rotationSwaySpeed                       = 0x28;
-		constexpr auto rotationSwayAmount                      = 0x2c;
+		constexpr auto positionalSwaySpeed                     = 0x20; // position sway speed
+		constexpr auto positionalSwayAmount                    = 0x24; // position sway magnitude
+		constexpr auto rotationSwaySpeed                       = 0x28; // rotation sway speed
+		constexpr auto rotationSwayAmount                      = 0x2c; // rotation sway magnitude
 	}
 
 	namespace MotorRowboat
 	{
-		constexpr auto fuelPerSec                              = 0x510;
+		constexpr auto fuelPerSec                              = 0x510; // fuel consumption per second
 	}
 
 	namespace HotAirBalloon
 	{
-		constexpr auto inflationLevel                          = 0x334;
-		constexpr auto windForce                               = 0x38c;
-		constexpr auto fuelPerSec                              = 0x340;
-		constexpr auto liftAmount                              = 0x2d8;
+		constexpr auto inflationLevel                          = 0x334; // balloon inflation level 0-1
+		constexpr auto windForce                               = 0x38c; // wind push force (float)
+		constexpr auto fuelPerSec                              = 0x340; // fuel burn rate per second
+		constexpr auto liftAmount                              = 0x2d8; // lift force amount (float)
 	}
 
 	namespace RidableHorse
 	{
-		constexpr auto staminaCoreLossRatio                    = 0x600;
+		constexpr auto staminaCoreLossRatio                    = 0x600; // stamina drain rate (float)
 	}
 
 	namespace Snowmobile
 	{
-		constexpr auto engineKW                                = 0x510;
+		constexpr auto engineKW                                = 0x510; // engine power in kilowatts
 	}
 
 	namespace TrainEngine
 	{
-		constexpr auto maxSpeed                                = 0x5c4;
+		constexpr auto maxSpeed                                = 0x5c4; // maximum track speed (float)
 	}
 
 	namespace Kayak
 	{
-		constexpr auto maxPaddleFrequency                      = 0x478;
+		constexpr auto maxPaddleFrequency                      = 0x478; // max paddle action rate (float)
 	}
 
 	namespace BradleyAPC
 	{
-		constexpr auto health                                  = 0x2f0;
+		constexpr auto health                                  = 0x2f0; // APC current health (float)
 	}
 
 	namespace SimpleShark
 	{
-		constexpr auto aggroRange                              = 0x2cc;
+		constexpr auto aggroRange                              = 0x2cc; // aggression trigger range (float)
 	}
 
 	namespace Landmine
 	{
-		constexpr auto minExplosionRadius                      = 0x2f8;
+		constexpr auto minExplosionRadius                      = 0x2f8; // minimum blast radius (float)
 	}
 
 	namespace GunTrap
 	{
-		constexpr auto ammoType                                = 0x3b8;
+		constexpr auto ammoType                                = 0x3b8; // accepted ammo item definition ref
 	}
 
 	namespace FlameTurret
 	{
-		constexpr auto arc                                     = 0x388;
-		constexpr auto fuelPerSec                              = 0x398;
+		constexpr auto arc                                     = 0x388; // detection arc angle in degrees
+		constexpr auto fuelPerSec                              = 0x398; // fuel consumption rate
 	}
 
 	namespace TeslaCoil
 	{
-		constexpr auto maxDischargeSelfDamageSeconds           = 0x330;
-		constexpr auto maxDamageOutput                         = 0x334;
-		constexpr auto dischargeTickRate                       = 0x32c;
+		constexpr auto maxDischargeSelfDamageSeconds           = 0x330; // self-damage cap duration
+		constexpr auto maxDamageOutput                         = 0x334; // max damage per discharge
+		constexpr auto dischargeTickRate                       = 0x32c; // discharge frequency (float)
 	}
 
 	namespace Barricade
 	{
-		constexpr auto reflectDamage                           = 0x2e0;
+		constexpr auto reflectDamage                           = 0x2e0; // damage reflected to attacker
 	}
 
 	namespace Door
 	{
-		constexpr auto canHandOpen                             = 0x33d;
+		constexpr auto canHandOpen                             = 0x33d; // can be opened by hand without code
 	}
 
 	namespace StabilityEntity
 	{
-		constexpr auto grounded                                = 0x2e0;
+		constexpr auto grounded                                = 0x2e0; // entity is grounded/supported (bool)
 	}
 
 	namespace BaseOven
 	{
-		constexpr auto temperature                             = 0x388;
-		constexpr auto allowByproductCreation                  = 0x3d8;
+		constexpr auto temperature                             = 0x390; // current cooking temperature
+		constexpr auto allowByproductCreation                  = 0x3e0; // produces byproducts (bool)
 	}
 
 	namespace Workbench
 	{
-		constexpr auto Workbenchlevel                          = 0x38c;
+		constexpr auto Workbenchlevel                          = 0x38c; // bench level 1/2/3 (int)
 	}
 
 	namespace RepairBench
 	{
-		constexpr auto maxConditionLostOnRepair                = 0x380;
+		constexpr auto maxConditionLostOnRepair                = 0x380; // max condition lost per repair
 	}
 
 	namespace ElectricalBranch
 	{
-		constexpr auto branchAmount                            = 0x320;
+		constexpr auto branchAmount                            = 0x320; // power routed to branch output
 	}
 
 	namespace VendingMachine
 	{
-		constexpr auto shopName                                = 0x3b8;
+		constexpr auto shopName                                = 0x3b8; // vending machine display name
 	}
 
 	namespace LootContainer
 	{
-		constexpr auto maxDefinitionsToSpawn                   = 0x390;
-		constexpr auto initialLootSpawn                        = 0x39c;
-		constexpr auto scrapAmount                             = 0x3ac;
+		constexpr auto maxDefinitionsToSpawn                   = 0x390; // max loot types to spawn
+		constexpr auto initialLootSpawn                        = 0x39c; // loot spawned on first open
+		constexpr auto scrapAmount                             = 0x3ac; // scrap value of contents
 	}
 
 	namespace SupplyDrop
 	{
-		constexpr auto parachute                               = 0x3d0;
+		constexpr auto parachute                               = 0x3d0; // parachute component ref
 	}
 
 	namespace DroppedItem
 	{
-		constexpr auto itemModel                               = 0x1e8;
+		constexpr auto itemModel                               = 0x1e8; // visual model for dropped item
 	}
 
 	namespace TreeEntity
 	{
-		constexpr auto woodAmount                              = 0x224;
-		constexpr auto fallDuration                            = 0x1f4;
+		constexpr auto woodAmount                              = 0x224; // wood yield amount (int)
+		constexpr auto fallDuration                            = 0x1f4; // time to fall when chopped
 	}
 
 	namespace ResourceDispenser
 	{
-		constexpr auto containedItems                          = 0x38;
-		constexpr auto gatherType                              = 0x30;
-		constexpr auto fractionRemaining                       = 0x54;
-		constexpr auto maxDestroyFractionForFinishBonus        = 0x40;
+		constexpr auto containedItems                          = 0x38; // resource items this node holds
+		constexpr auto gatherType                              = 0x30; // resource type enum
+		constexpr auto fractionRemaining                       = 0x54; // fraction of resources left (float)
+		constexpr auto maxDestroyFractionForFinishBonus        = 0x40; // threshold for bonus resources
 	}
 
 	namespace MiningQuarry
 	{
-		constexpr auto processRate                             = 0x2d8;
-		constexpr auto fuelStoragePrefab                       = 0x2e8;
+		constexpr auto processRate                             = 0x2d8; // items mined per tick (float)
+		constexpr auto fuelStoragePrefab                       = 0x2e8; // fuel tank prefab ref
 	}
 
 	namespace SleepingBag
 	{
-		constexpr auto niceName                                = 0x328;
-		constexpr auto canBePublic                             = 0x341;
+		constexpr auto niceName                                = 0x328; // user-assigned bag name string
+		constexpr auto canBePublic                             = 0x341; // publicly usable by team (bool)
 	}
 
 	namespace DamageProperties
 	{
-		constexpr auto fallback                                = 0x20;
+		constexpr auto fallback                                = 0x20; // fallback damage type list ref
 	}
 
 	namespace FireBall
 	{
-		constexpr auto damagePerSecond                         = 0x204;
-		constexpr auto radius                                  = 0x208;
-		constexpr auto tickRate                                = 0x200;
+		constexpr auto damagePerSecond                         = 0x204; // fire damage per second (float)
+		constexpr auto radius                                  = 0x208; // fire spread radius (float)
+		constexpr auto tickRate                                = 0x200; // damage tick interval (float)
 	}
 
 	namespace BaseHelicopter
 	{
-		constexpr auto rotorPivot                              = 0x408;
+		constexpr auto rotorPivot                              = 0x408; // main rotor pivot transform ref
 	}
 
 	namespace CargoShip
 	{
-		constexpr auto targetNodeIndex                         = 0x1d8;
+		constexpr auto targetNodeIndex                         = 0x1d8; // current path node target (int)
 	}
 
 	namespace ExcavatorArm
 	{
-		constexpr auto resourceProductionTickRate              = 0x250;
-		constexpr auto timeForFullResources                    = 0x254;
+		constexpr auto resourceProductionTickRate              = 0x250; // resources produced per tick
+		constexpr auto timeForFullResources                    = 0x254; // time to reach max output
 	}
 
 	namespace TOD_Sky_Fields
 	{
-		constexpr auto Day                                     = 0x58;
-		constexpr auto Night                                   = 0x60;
-		constexpr auto Cycle                                   = 0x40;
-		constexpr auto Atmosphere                              = 0x50;
-		constexpr auto Sun                                     = 0x68;
-		constexpr auto Moon                                    = 0x70;
-		constexpr auto Stars                                   = 0x78;
+		constexpr auto Day                                     = 0x58; // daytime sky parameters ref
+		constexpr auto Night                                   = 0x60; // nighttime sky parameters ref
+		constexpr auto Cycle                                   = 0x40; // day/night cycle parameters ref
+		constexpr auto Atmosphere                              = 0x50; // atmosphere parameters ref
+		constexpr auto Sun                                     = 0x68; // sun parameters ref
+		constexpr auto Moon                                    = 0x70; // moon parameters ref
+		constexpr auto Stars                                   = 0x78; // star field parameters ref
 	}
 
 	namespace TOD_CycleParameters
 	{
-		constexpr auto Hour                                    = 0x10;
-		constexpr auto Day                                     = 0x14;
-		constexpr auto Month                                   = 0x18;
-		constexpr auto Year                                    = 0x1c;
+		constexpr auto Hour                                    = 0x10; // current hour 0-24 (float)
+		constexpr auto Day                                     = 0x14; // current day of month (int)
+		constexpr auto Month                                   = 0x18; // current month (int)
+		constexpr auto Year                                    = 0x1c; // current year (int)
 	}
 
 	namespace WaterBody
 	{
-		constexpr auto Type                                    = 0x20;
+		constexpr auto Type                                    = 0x20; // water body type enum (ocean/river/lake)
 	}
 
 	namespace Buoyancy
 	{
-		constexpr auto buoyancyScale                           = 0x38;
-		constexpr auto doEffects                               = 0x3d;
+		constexpr auto buoyancyScale                           = 0x38; // buoyancy force multiplier (float)
+		constexpr auto doEffects                               = 0x3d; // play splash effects (bool)
 	}
 
 	namespace CCTV_RC
 	{
-		constexpr auto pitch                                   = 0x358;
-		constexpr auto yaw                                     = 0x350;
+		constexpr auto pitch                                   = 0x358; // current camera pitch angle
+		constexpr auto yaw                                     = 0x350; // current camera yaw angle
 	}
 
 	namespace Telephone
 	{
-		constexpr auto Controller                              = 0x3d0;
+		constexpr auto Controller                              = 0x3d0; // phone controller component ref
 	}
 
 	namespace MapMarker
 	{
-		constexpr auto appType                                 = 0x1d8;
+		constexpr auto appType                                 = 0x1d8; // marker type for companion app
 	}
 
 	namespace BaseBoat
 	{
-		constexpr auto buoyancy                                = 0x410;
+		constexpr auto buoyancy                                = 0x410; // buoyancy component ref
 	}
 
 	namespace ResearchTable
 	{
-		constexpr auto researchDuration                        = 0x388;
-		constexpr auto researchCostFraction                    = 0x384;
+		constexpr auto researchDuration                        = 0x388; // time to research item (float)
+		constexpr auto researchCostFraction                    = 0x384; // scrap cost fraction (float)
 	}
 
 	namespace TriggerBase
 	{
-		constexpr auto interestLayers                          = 0x20;
-		constexpr auto entityContents                          = 0x40;
+		constexpr auto interestLayers                          = 0x20; // LayerMask of triggerable layers
+		constexpr auto entityContents                          = 0x38; // entities currently in trigger
 	}
 
 	namespace TriggerRadiation
 	{
-		constexpr auto RadiationAmountOverride                 = 0x54;
+		constexpr auto RadiationAmountOverride                 = 0x54; // radiation level override (float)
 	}
 
 	namespace WildlifeTrap
 	{
-		constexpr auto trapSuccessRate                         = 0x394;
-		constexpr auto tickRate                                = 0x380;
+		constexpr auto trapSuccessRate                         = 0x394; // probability of catching animal
+		constexpr auto tickRate                                = 0x380; // check interval (float)
 	}
 
 	namespace ListComponent_Projectile
 	{
-		constexpr auto ListComponent_Projectile_C              = 0xe4079f8;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto instance                                = 0x28;
-		constexpr auto instance_two                            = 0x18;
+		constexpr auto ListComponent_Projectile_C              = 0xe4dd1c0; // Il2CppClass* RVA
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto instance                                = 0x28; // singleton List<Projectile> manager
+		constexpr auto instance_two                            = 0x18; // inner List<Projectile> ref
 	}
 
 	namespace TodSky
 	{
-		constexpr auto TodSky_C                                = 0xe330f48;
-		constexpr auto Instance                                = 0x10;
+		constexpr auto TodSky_C                                = 0xe401ad8; // Il2CppClass* RVA for TOD_Sky
+		constexpr auto Instance                                = 0x10; // singleton TOD_Sky instance ref
 	}
 
 	namespace Convar_Admin
 	{
-		constexpr auto TypeInfo                                = 0xe41ae28;
+		constexpr auto TypeInfo                                = 0xe489188; // Il2CppClass* for admin convar reflection
 	}
 
 	namespace Convar_Graphics
 	{
-		constexpr auto TypeInfo                                = 0xe37de30;
+		constexpr auto TypeInfo                                = 0xe497c68; // Il2CppClass* for graphics convar reflection
 	}
 
 	namespace Convar_Server
 	{
-		constexpr auto TypeInfo                                = 0xe3ccc40;
+		constexpr auto TypeInfo                                = 0xe451400; // Il2CppClass* for server convar reflection
 	}
 
 	namespace SingletonClimate
 	{
-		constexpr auto Climate_C                               = 0xe3e04e0;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto Instance                                = 0x28;
+		constexpr auto Climate_C                               = 0xe449158; // Il2CppClass* RVA for Climate
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto Instance                                = 0x28; // singleton Climate instance ref
 	}
 
 	namespace GameManager
 	{
-		constexpr auto Static_fields                           = 0xb8;
-		constexpr auto client                                  = 0x10;
-		constexpr auto Pool                                    = 0x20;
-		constexpr auto Stack                                   = 0x18;
+		constexpr auto Static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto client                                  = 0x10; // client game manager ref
+		constexpr auto Pool                                    = 0x20; // object pool ref
+		constexpr auto Stack                                   = 0x18; // object stack ref
 	}
 
 	namespace ItemIcon
 	{
-		constexpr auto ItemIcon_C                              = 0xe3a9b78;
-		constexpr auto Static_fields                           = 0xc0;
-		constexpr auto Instance                                = 0x18;
+		constexpr auto ItemIcon_C                              = 0xe43c188; // Il2CppClass* RVA for ItemIcon
+		constexpr auto Static_fields                           = 0xc0; // static fields blob ptr
+		constexpr auto Instance                                = 0x18; // singleton ItemIcon UI instance
 	}
 
 	namespace PlayerEyes_Static
 	{
-		constexpr auto PlayerEyes_C                            = 0xe413fe0;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto PlayerEyes_C                            = 0xe4d3d50; // TypeInfo global (may be lazy-init)
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto TypeDefIndex                            = 0x1b1; // index into sTypeInfoDefinitionTable
 	}
 
 	namespace BasePlayer_Static
 	{
-		constexpr auto BasePlayer_C                            = 0xe3442e0;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto visiblePlayerList                       = 0xf50;
+		constexpr auto BasePlayer_C                            = 0xe486240; // Il2CppClass* RVA for BasePlayer
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto visiblePlayerList                       = 0xf50; // list of currently visible players
 	}
 
 	namespace CameraUpdateHook_Static
 	{
-		constexpr auto CameraUpdateHook_C                      = 0xe4110e0;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto CameraUpdateHook_C                      = 0xe4ad550; // Il2CppClass* RVA
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
 	}
 
 	namespace Planner_Static
 	{
-		constexpr auto Planner_C                               = 0xe419f00;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto Planner_C                               = 0xe3f8298; // Il2CppClass* RVA for Planner
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
 	}
 
 	namespace MapView_Static
 	{
-		constexpr auto MapView_C                               = 0xe373ff8;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto MapView_C                               = 0xe468878; // Il2CppClass* RVA for MapView
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
 	}
 
 	namespace CraftingQueue_Static
 	{
-		constexpr auto CraftingQueue_C                         = 0xe35f5f8;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto CraftingQueue_C                         = 0xe4aba68; // Il2CppClass* RVA for CraftingQueue
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
 	}
 
 	namespace WaterSystem_Static
 	{
-		constexpr auto WaterSystem_C                           = 0xe40e890;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto WaterSystem_C                           = 0xe3f7830; // Il2CppClass* RVA for WaterSystem
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
 	}
 
 	namespace BaseScreenShake_Static
 	{
-		constexpr auto BaseScreenShake_C                       = 0xe3363f0;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto BaseScreenShake_C                       = 0xe477e40; // TypeInfo global (may be lazy-init)
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto TypeDefIndex                            = 0x13db; // index into sTypeInfoDefinitionTable
 	}
 
 	namespace SingletonComponent_MainCamera
 	{
-		constexpr auto SingletonComponent_C                    = 0xe406248;
-		constexpr auto Instance                                = 0x10;
+		constexpr auto SingletonComponent_C                    = 0xe46faa0; // TypeInfo global (lazy-init, no tdx)
+		constexpr auto Instance                                = 0x10; // singleton MainCamera component ref
 	}
 
 	namespace LocalPlayer_Static
 	{
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto Entity                                  = 0x148;
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto Entity                                  = 0x148; // local BasePlayer entity ref
 	}
 
 	namespace Performance_Static
 	{
-		constexpr auto Performance_C                           = 0xe408ff8;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto fps                                     = 0x49c;
+		constexpr auto Performance_C                           = 0xe46b9f0; // Il2CppClass* RVA for Performance
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto fps                                     = 0x49c; // current frames per second (float)
 	}
 
 	namespace Buttons_Static
 	{
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
 	}
 
 	namespace TOD_Sky_Static
 	{
-		constexpr auto TOD_Sky_C                               = 0xe330f48;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto Instance                                = 0x80;
+		constexpr auto TOD_Sky_C                               = 0xe401ad8; // Il2CppClass* RVA for TOD_Sky
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto Instance                                = 0x80; // singleton TOD_Sky instance ref
 	}
 
 	namespace OcclusionCulling
 	{
-		constexpr auto OcclusionCulling_C                      = 0xe3468c0;
-		constexpr auto static_fields                           = 0xb8;
+		constexpr auto OcclusionCulling_C                      = 0xe4d6020; // Il2CppClass* RVA
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
 	}
 
 	namespace ModelState
 	{
-		constexpr auto Flags                                   = 0x58;
-		constexpr auto WaterLevel                              = 0x2c;
-		constexpr auto Ducking                                 = 0x30;
+		constexpr auto Flags                                   = 0x60; // model state flags bitmask
+		constexpr auto WaterLevel                              = 0x20; // water depth under entity (float)
+		constexpr auto Ducking                                 = 0x24; // is ducking/crouching (float)
 	}
 
 	namespace Il2Cpp
 	{
-		constexpr auto sTypeInfoDefinitionTable                = 0xe7160f8;
-		constexpr auto Il2CppHandle                            = 0xe711ee0;
+		constexpr auto sTypeInfoDefinitionTable                = 0xe7d0e60; // Il2CppClass*[] indexed by TypeDefIndex
+		constexpr auto Il2CppHandle                            = 0xe7ccc60; // GCHandle table base ptr
 	}
 
 	namespace Il2CppClass
 	{
-		constexpr auto name                                    = 0x10;
-		constexpr auto name_space                              = 0x18;
-		constexpr auto parent                                  = 0x58;
-		constexpr auto fields_table                            = 0x80;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto fields_size                             = 0x120;
+		constexpr auto name                                    = 0x10; // class name C string ptr
+		constexpr auto name_space                              = 0x18; // namespace C string ptr
+		constexpr auto parent                                  = 0x58; // parent Il2CppClass* ptr
+		constexpr auto fields_table                            = 0x80; // FieldInfo* array ptr
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto fields_size                             = 0x120; // number of declared fields
 	}
+
 
 
 	namespace SceneManager
 	{
-		constexpr auto GetActiveScene                          = 0xbe5a910;
+		constexpr auto GetActiveScene                          = 0xbf1f900; // SceneManager::GetActiveScene method ptr
 	}
+
+
 
 	namespace BaseViewModel_Static
 	{
-		constexpr auto BaseViewModel_C                         = 0xe39b000;
-		constexpr auto static_fields                           = 0xb8;
-		constexpr auto list_baseviewmodel                      = 0x8;
-		constexpr auto baseviewmodel                           = 0xe3b2278;
+		constexpr auto BaseViewModel_C                         = 0xe4aa1b0; // Il2CppClass* RVA for BaseViewModel
+		constexpr auto static_fields                           = 0xb8; // static fields blob ptr
+		constexpr auto list_baseviewmodel                      = 0x0; // i need to fix this :sob:
 	}
 
 }
