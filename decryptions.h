@@ -18,9 +18,10 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x93748B89u;
-		        eax = eax + 0x96CB9157u;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
+		        eax = (eax >> 0x0E) | (eax << 0x12);
+		        eax = eax + 0x97ACC028u;
+		        eax = (eax << 0x0C) | (eax >> 0x14);
+		        eax = eax + 0x12C55E8Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -38,9 +39,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x6FF3D846u;
-		        eax = (eax << 0x15) | (eax >> 0x0B);
-		        eax = eax + 0x7B132AD0u;
+		        eax = (eax >> 0x13) | (eax << 0x0D);
+		        eax = eax + 0x151DA616u;
+		        eax = (eax << 0x10) | (eax >> 0x10);
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -62,10 +63,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x44519A01u;
-		        eax = eax ^ 0xEF6D88Cu;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        eax = eax - 0x48BD351Cu;
+		        eax = eax + 0x69E0F77u;
+		        eax = (eax << 0x1C) | (eax >> 0x04);
+		        eax = eax ^ 0xDE2AC61Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -83,17 +83,20 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax + 0xCE60325Bu;
-		        eax = (eax << 0x13) | (eax >> 0x0D);
-		        eax = eax + 0xA48959Fu;
+		        eax = (eax >> 0x19) | (eax << 0x07);
+		        eax = eax + 0x8C16D8A4u;
+		        eax = (eax << 0x15) | (eax >> 0x0B);
+		        eax = eax ^ 0x295124D3u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
 		    return rax;
 		}
 
-		// decryptions::decrypt_PlayerInventory
-		std::uintptr_t decrypt_PlayerInventory(std::uintptr_t a1)
+
+
+		// decryptions::decrypt_GestureConfig
+		std::uintptr_t decrypt_GestureConfig(std::uintptr_t a1)
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
@@ -103,49 +106,50 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x2B99655Bu;
-		        eax = eax + 0xC749C554u;
+		        eax = (eax >> 0x09) | (eax << 0x17);
+		        eax = eax - 0x262EB439u;
+		        eax = eax ^ 0xCA26D0E8u;
+		        *((std::uint32_t*)rdx - 1) = eax;
+		        --r8d;
+		    } while (r8d);
+		    return rax;
+		}
+
+		// decryptions::decrypt_float
+		std::uintptr_t decrypt_float(std::uintptr_t a1)
+		{
+		    std::uintptr_t rax = a1;
+		    std::uintptr_t* rdx = &rax;
+		    std::uint32_t r8d = 0x3;
+		    uint32_t eax, ecx;
+		
+		    do {
+		        eax = *(std::uint32_t*)(rdx);
+		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
+		        eax = eax ^ 0x9D7C7E29u;
+		        eax = (eax << 0x0C) | (eax >> 0x14);
+		        eax = eax + 0x4B9A3504u;
+		        *((std::uint32_t*)rdx - 1) = eax;
+		        --r8d;
+		    } while (r8d);
+		    return rax;
+		}
+
+		// decryptions::decrypt_playerFlags
+		std::uintptr_t decrypt_playerFlags(std::uintptr_t a1)
+		{
+		    std::uintptr_t rax = a1;
+		    std::uintptr_t* rdx = &rax;
+		    std::uint32_t r8d = 0x2;
+		    uint32_t eax, ecx;
+		
+		    do {
+		        eax = *(std::uint32_t*)(rdx);
+		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
+		        eax = eax ^ 0xD5508AC5u;
+		        eax = eax + 0xD525B4F3u;
 		        eax = (eax << 0x07) | (eax >> 0x19);
-		        eax = eax + 0x784A90B1u;
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_PlayerInventory_2
-		std::uintptr_t decrypt_PlayerInventory_2(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x4DC14BB8u;
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_PlayerEyes
-		std::uintptr_t decrypt_PlayerEyes(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = (eax >> 0x15) | (eax << 0x0B);
-		        eax = eax - 0x3BAD30FEu;
-		        eax = eax ^ 0x7790C0A0u;
-		        eax = eax + 0x6CE48E8Bu;
+		        eax = eax + 0x6823EB73u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -163,30 +167,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0xC8390462u;
-		        eax = (eax << 0x1C) | (eax >> 0x04);
-		        eax = eax - 0x4DC14BB8u;
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_clothingAccuracyBonus
-		std::uintptr_t decrypt_clothingAccuracyBonus(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x3;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = (eax >> 0x0C) | (eax << 0x14);
-		        eax = eax + 0x9AC59D54u;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        eax = eax ^ 0xC92CB593u;
+		        eax = (eax >> 0x1D) | (eax << 0x03);
+		        eax = eax ^ 0x8530F70Fu;
+		        eax = eax + 0x3356569Eu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -198,15 +181,16 @@ namespace Decryptions
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x1;
+		    std::uint32_t r8d = 0x2;
 		    uint32_t eax, ecx;
 		
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = (eax << 0x19) | (eax >> 0x07);
-		        eax = eax + 0x5BFDBA25u;
-		        eax = (eax << 0x06) | (eax >> 0x1A);
+		        eax = (eax >> 0x07) | (eax << 0x19);
+		        eax = eax + 0x6C498D4Au;
+		        eax = eax ^ 0xB9CF74B8u;
+		        eax = eax - 0x5CC965Au;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -224,30 +208,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x5u;
-		        eax = eax + esi;
-		        eax = eax + 0xFFFF2400u;
-		        eax = eax + 0xFFFFFFFBu;
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_3
-		std::uintptr_t decrypt_3(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = (eax >> 0x1A) | (eax << 0x06);
-		        eax = eax ^ 0x1D918A33u;
-		        eax = eax + 0xD7232282u;
+		        eax = (eax >> 0x0A) | (eax << 0x16);
+		        eax = eax - 0x4A572E6Eu;
+		        eax = eax ^ 0x4F5C9051u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -269,10 +232,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x2B99655Bu;
-		        eax = eax + 0xC749C554u;
-		        eax = (eax << 0x07) | (eax >> 0x19);
-		        eax = eax + 0x784A90B1u;
+		        eax = (eax >> 0x09) | (eax << 0x17);
+		        eax = eax - 0x262EB439u;
+		        eax = eax ^ 0xCA26D0E8u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -283,25 +245,7 @@ namespace Decryptions
 
 	namespace Convar_Graphics_Decryption
 	{
-		// decryptions::decrypt_int
-		uint64_t encrypt_decrypt_int(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax ^ 0xE40D1FBAu;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_int(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax ^ 0xE40D1FBAu;
-		    return eax;
-		}
-
-		// decryptions::decrypt_float
-		std::uintptr_t decrypt_float(std::uintptr_t a1)
+		std::uintptr_t decrypt_0x18(std::uintptr_t a1)
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
@@ -311,9 +255,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x93748B89u;
-		        eax = eax + 0x96CB9157u;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
+		        eax = (eax >> 0x09) | (eax << 0x17);
+		        eax = eax - 0x262EB439u;
+		        eax = eax ^ 0xCA26D0E8u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -321,24 +265,7 @@ namespace Decryptions
 		}
 
 		// decryptions::decrypt_bool
-		uint64_t encrypt_decrypt_bool(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax - 0x2u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_bool(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax + 0x2u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_int
-		std::uintptr_t decrypt_int(std::uintptr_t a1)
+		std::uintptr_t decrypt_bool(std::uintptr_t a1)
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
@@ -348,30 +275,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = (eax >> 0x08) | (eax << 0x18);
-		        eax = eax + 0x7C64D3E6u;
-		        eax = (eax << 0x1C) | (eax >> 0x04);
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_int
-		std::uintptr_t decrypt_int(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x44519A01u;
-		        eax = eax ^ 0xEF6D88Cu;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        eax = eax - 0x48BD351Cu;
+		        eax = eax + 0x5DCD7632u;
+		        eax = (eax << 0x05) | (eax >> 0x1B);
+		        eax = eax ^ 0x5145F227u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -383,8 +289,9 @@ namespace Decryptions
 		{
 		    uint64_t v1;
 		    uint32_t eax = a1;
-		    eax = eax ^ 0xCC78692Eu;
-		    eax = (eax << 0x05) | (eax >> 0x1B);
+		    eax = (eax >> 0x19) | (eax << 0x07);
+		    eax = eax - 0x63398D63u;
+		    eax = (eax << 0x19) | (eax >> 0x07);
 		    *(uint32_t*)&v1 = eax;
 		    return v1;
 		}
@@ -392,31 +299,77 @@ namespace Decryptions
 		uint32_t decrypt_fov(uint64_t a1)
 		{
 		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = (eax >> 0x05) | (eax << 0x1B);
-		    eax = eax ^ 0xCC78692Eu;
+		    eax = (eax >> 0x19) | (eax << 0x07);
+		    eax = eax + 0x63398D63u;
+		    eax = (eax << 0x19) | (eax >> 0x07);
 		    return eax;
 		}
 
-	}
+
 
 	namespace Convar_Admin_Decryption
 	{
-		// decryptions::decrypt_bool
-		std::uintptr_t decrypt_bool(std::uintptr_t a1)
+
+
+		std::uintptr_t decrypt_0x18(std::uintptr_t a1)
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x3;
+		    std::uint32_t r8d = 0x2;
 		    uint32_t eax, ecx;
 		
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax + 0x1A8u;
+		        eax = (eax >> 0x09) | (eax << 0x17);
+		        eax = eax - 0x262EB439u;
+		        eax = eax ^ 0xCA26D0E8u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
 		    return rax;
+		}
+
+		// decryptions::decrypt_bool
+		std::uintptr_t decrypt_bool(std::uintptr_t a1)
+		{
+		    std::uintptr_t rax = a1;
+		    std::uintptr_t* rdx = &rax;
+		    std::uint32_t r8d = 0x2;
+		    uint32_t eax, ecx;
+		
+		    do {
+		        eax = *(std::uint32_t*)(rdx);
+		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
+		        eax = (eax >> 0x03) | (eax << 0x1D);
+		        eax = eax ^ 0xC54AD1C2u;
+		        eax = eax + 0x3F664081u;
+		        *((std::uint32_t*)rdx - 1) = eax;
+		        --r8d;
+		    } while (r8d);
+		    return rax;
+		}
+
+
+		// decryptions::decrypt_float
+		uint64_t encrypt_decrypt_float(uint32_t a1)
+		{
+		    uint64_t v1;
+		    uint32_t eax = a1;
+		    eax = (eax >> 0x19) | (eax << 0x07);
+		    eax = eax - 0x63398D63u;
+		    eax = (eax << 0x19) | (eax >> 0x07);
+		    *(uint32_t*)&v1 = eax;
+		    return v1;
+		}
+
+		uint32_t decrypt_decrypt_float(uint64_t a1)
+		{
+		    uint32_t eax = static_cast<uint32_t>(a1);
+		    eax = (eax >> 0x19) | (eax << 0x07);
+		    eax = eax + 0x63398D63u;
+		    eax = (eax << 0x19) | (eax >> 0x07);
+		    return eax;
 		}
 
 	}
@@ -434,169 +387,23 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax + 0xCE60325Bu;
-		        eax = (eax << 0x13) | (eax >> 0x0D);
-		        eax = eax + 0xA48959Fu;
+		        eax = (eax >> 0x0E) | (eax << 0x12);
+		        eax = eax + 0x97ACC028u;
+		        eax = (eax << 0x0C) | (eax >> 0x14);
+		        eax = eax + 0x12C55E8Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
 		    return rax;
 		}
 
-		// decryptions::decrypt_Action
-		std::uintptr_t decrypt_Action(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x44519A01u;
-		        eax = eax ^ 0xEF6D88Cu;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        eax = eax - 0x48BD351Cu;
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_int
-		uint64_t encrypt_decrypt_int(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax + 0x1u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_int(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax - 0x1u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_int
-		uint64_t encrypt_decrypt_int(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax + 0x1u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_int(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax - 0x1u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_int
-		uint64_t encrypt_decrypt_int(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax + 0x1u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_int(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax - 0x1u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_int
-		uint64_t encrypt_decrypt_int(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax + 0x1u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_int(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax - 0x1u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_int
-		uint64_t encrypt_decrypt_int(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax + 0x1u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_int(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax - 0x1u;
-		    return eax;
-		}
 
 	}
 
 	namespace BaseProjectile_Decryption
 	{
 		// decryptions::decrypt_aimCone
-		uint64_t encrypt_decrypt_aimCone(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax + 0x5E099DD0u;
-		    eax = eax ^ 0xD4759399u;
-		    eax = eax - 0x79AD09C2u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_aimCone(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax + 0x79AD09C2u;
-		    eax = eax ^ 0xD4759399u;
-		    eax = eax - 0x5E099DD0u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_recoil
-		uint64_t encrypt_decrypt_recoil(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax ^ 0x899712E4u;
-		    eax = eax - 0x3B4A71B2u;
-		    eax = eax ^ 0x5742770Fu;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_recoil(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax ^ 0x5742770Fu;
-		    eax = eax + 0x3B4A71B2u;
-		    eax = eax ^ 0x899712E4u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_2
-		std::uintptr_t decrypt_2(std::uintptr_t a1)
+		std::uintptr_t decrypt_aimCone(std::uintptr_t a1)
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
@@ -606,10 +413,10 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0xB2ED0CF9u;
-		        eax = eax + 0x1350E729u;
-		        eax = (eax << 0x12) | (eax >> 0x0E);
-		        eax = eax + 0x132B2673u;
+		        eax = eax + 0x8A298AEAu;
+		        eax = (eax << 0x07) | (eax >> 0x19);
+		        eax = eax + 0x73B78A44u;
+		        eax = eax ^ 0xE356AF56u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -631,10 +438,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0xF04758DFu;
-		        eax = (eax << 0x0C) | (eax >> 0x14);
-		        eax = eax + 0xFCE0AA13u;
-		        eax = (eax << 0x14) | (eax >> 0x0C);
+		        eax = eax + 0x69E0F77u;
+		        eax = (eax << 0x1C) | (eax >> 0x04);
+		        eax = eax ^ 0xDE2AC61Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -656,9 +462,10 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x93748B89u;
-		        eax = eax + 0x96CB9157u;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
+		        eax = (eax >> 0x0E) | (eax << 0x12);
+		        eax = eax + 0x97ACC028u;
+		        eax = (eax << 0x0C) | (eax >> 0x14);
+		        eax = eax + 0x12C55E8Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -676,10 +483,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x44519A01u;
-		        eax = eax ^ 0xEF6D88Cu;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        eax = eax - 0x48BD351Cu;
+		        eax = eax + 0x69E0F77u;
+		        eax = (eax << 0x1C) | (eax >> 0x04);
+		        eax = eax ^ 0xDE2AC61Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -697,10 +503,10 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = (eax >> 0x15) | (eax << 0x0B);
-		        eax = eax - 0x3BAD30FEu;
-		        eax = eax ^ 0x7790C0A0u;
-		        eax = eax + 0x6CE48E8Bu;
+		        eax = eax ^ 0xD5508AC5u;
+		        eax = eax + 0xD525B4F3u;
+		        eax = (eax << 0x07) | (eax >> 0x19);
+		        eax = eax + 0x6823EB73u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -722,10 +528,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x2B99655Bu;
-		        eax = eax + 0xC749C554u;
-		        eax = (eax << 0x07) | (eax >> 0x19);
-		        eax = eax + 0x784A90B1u;
+		        eax = (eax >> 0x09) | (eax << 0x17);
+		        eax = eax - 0x262EB439u;
+		        eax = eax ^ 0xCA26D0E8u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -737,16 +542,15 @@ namespace Decryptions
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
+		    std::uint32_t r8d = 0x1;
 		    uint32_t eax, ecx;
 		
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x44519A01u;
-		        eax = eax ^ 0xEF6D88Cu;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        eax = eax - 0x48BD351Cu;
+		        eax = (eax >> 0x19) | (eax << 0x07);
+		        eax = eax + 0x63398D63u;
+		        eax = (eax << 0x19) | (eax >> 0x07);
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -764,50 +568,10 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x93748B89u;
-		        eax = eax + 0x96CB9157u;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_3
-		std::uintptr_t decrypt_3(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax + 0x87B56F4Fu;
-		        eax = (eax << 0x19) | (eax >> 0x07);
-		        eax = eax + 0x38B63AACu;
-		        eax = eax ^ 0x2B99655Bu;
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_4
-		std::uintptr_t decrypt_4(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax + 0xCE60325Bu;
-		        eax = (eax << 0x13) | (eax >> 0x0D);
-		        eax = eax + 0xA48959Fu;
+		        eax = (eax >> 0x0E) | (eax << 0x12);
+		        eax = eax + 0x97ACC028u;
+		        eax = (eax << 0x0C) | (eax >> 0x14);
+		        eax = eax + 0x12C55E8Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -819,24 +583,7 @@ namespace Decryptions
 	namespace BaseEntity_Decryption
 	{
 		// decryptions::decrypt_flags
-		uint64_t encrypt_decrypt_flags(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax - 0x20u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_flags(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax + 0x20u;
-		    return eax;
-		}
-
-		// decryptions::decrypt_parentEntity
-		std::uintptr_t decrypt_parentEntity(std::uintptr_t a1)
+		std::uintptr_t decrypt_flags(std::uintptr_t a1)
 		{
 		    std::uintptr_t rax = a1;
 		    std::uintptr_t* rdx = &rax;
@@ -846,60 +593,16 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0xC8390462u;
-		        eax = (eax << 0x1C) | (eax >> 0x04);
-		        eax = eax - 0x4DC14BB8u;
+		        eax = (eax >> 0x0E) | (eax << 0x12);
+		        eax = eax + 0x97ACC028u;
+		        eax = (eax << 0x0C) | (eax >> 0x14);
+		        eax = eax + 0x12C55E8Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
 		    return rax;
 		}
 
-	}
-
-	namespace TOD_Sky_Decryption
-	{
-		// decryptions::decrypt_cycle
-		uint64_t encrypt_decrypt_cycle(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax - r10d;
-		    eax = eax + r10d;
-		    eax = eax - r10d;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_cycle(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax + r10d;
-		    eax = eax - r10d;
-		    eax = eax + r10d;
-		    return eax;
-		}
-
-		// decryptions::decrypt_day
-		uint64_t encrypt_decrypt_day(uint32_t a1)
-		{
-		    uint64_t v1;
-		    uint32_t eax = a1;
-		    eax = eax + 0x1u;
-		    eax = eax + 0x1u;
-		    *(uint32_t*)&v1 = eax;
-		    return v1;
-		}
-
-		uint32_t decrypt_decrypt_day(uint64_t a1)
-		{
-		    uint32_t eax = static_cast<uint32_t>(a1);
-		    eax = eax - 0x1u;
-		    eax = eax - 0x1u;
-		    return eax;
-		}
-
-	}
 
 	namespace AutoTurret_Decryption
 	{
@@ -914,9 +617,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0xC8390462u;
-		        eax = (eax << 0x1C) | (eax >> 0x04);
-		        eax = eax - 0x4DC14BB8u;
+		        eax = (eax >> 0x09) | (eax << 0x17);
+		        eax = eax - 0x262EB439u;
+		        eax = eax ^ 0xCA26D0E8u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -934,10 +637,10 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x2B99655Bu;
-		        eax = eax + 0xC749C554u;
-		        eax = (eax << 0x07) | (eax >> 0x19);
-		        eax = eax + 0x784A90B1u;
+		        eax = (eax >> 0x0E) | (eax << 0x12);
+		        eax = eax + 0x97ACC028u;
+		        eax = (eax << 0x0C) | (eax >> 0x14);
+		        eax = eax + 0x12C55E8Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -955,9 +658,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x93748B89u;
-		        eax = eax + 0x96CB9157u;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
+		        eax = (eax >> 0x1D) | (eax << 0x03);
+		        eax = eax ^ 0x8530F70Fu;
+		        eax = eax + 0x3356569Eu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -979,9 +682,10 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax + 0x1E88CBFFu;
-		        eax = (eax << 0x07) | (eax >> 0x19);
-		        eax = eax ^ 0xBA6BB96Au;
+		        eax = (eax >> 0x09) | (eax << 0x17);
+		        eax = eax ^ 0x1ADB037Au;
+		        eax = eax - 0x6A1E293u;
+		        eax = eax ^ 0xF1F22894u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -999,10 +703,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax - 0x44519A01u;
-		        eax = eax ^ 0xEF6D88Cu;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
-		        eax = eax - 0x48BD351Cu;
+		        eax = eax + 0x69E0F77u;
+		        eax = (eax << 0x1C) | (eax >> 0x04);
+		        eax = eax ^ 0xDE2AC61Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -1020,9 +723,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = (eax >> 0x19) | (eax << 0x07);
-		        eax = eax ^ 0xDE9BD713u;
-		        eax = (eax << 0x11) | (eax >> 0x0F);
+		        eax = (eax >> 0x13) | (eax << 0x0D);
+		        eax = eax + 0x50DCA37Fu;
+		        eax = eax ^ 0x7DA4B534u;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -1044,9 +747,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0xC8390462u;
+		        eax = eax + 0x69E0F77u;
 		        eax = (eax << 0x1C) | (eax >> 0x04);
-		        eax = eax - 0x4DC14BB8u;
+		        eax = eax ^ 0xDE2AC61Bu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
@@ -1064,30 +767,9 @@ namespace Decryptions
 		    do {
 		        eax = *(std::uint32_t*)(rdx);
 		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x2B99655Bu;
-		        eax = eax + 0xC749C554u;
-		        eax = (eax << 0x07) | (eax >> 0x19);
-		        eax = eax + 0x784A90B1u;
-		        *((std::uint32_t*)rdx - 1) = eax;
-		        --r8d;
-		    } while (r8d);
-		    return rax;
-		}
-
-		// decryptions::decrypt_protectedMinutes
-		std::uintptr_t decrypt_protectedMinutes(std::uintptr_t a1)
-		{
-		    std::uintptr_t rax = a1;
-		    std::uintptr_t* rdx = &rax;
-		    std::uint32_t r8d = 0x2;
-		    uint32_t eax, ecx;
-		
-		    do {
-		        eax = *(std::uint32_t*)(rdx);
-		        rdx = (std::uintptr_t*)((std::uint8_t*)rdx + 0x4);
-		        eax = eax ^ 0x93748B89u;
-		        eax = eax + 0x96CB9157u;
-		        eax = (eax << 0x0B) | (eax >> 0x15);
+		        eax = (eax >> 0x1D) | (eax << 0x03);
+		        eax = eax ^ 0x8530F70Fu;
+		        eax = eax + 0x3356569Eu;
 		        *((std::uint32_t*)rdx - 1) = eax;
 		        --r8d;
 		    } while (r8d);
